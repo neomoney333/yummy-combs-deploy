@@ -29,7 +29,6 @@
     font-family: 'Montserrat', sans-serif;
     background: var(--white);
     color: var(--text-dark);
-    max-width: 393px;
     margin: 0 auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -39,12 +38,16 @@
   /* === TOP BANNER === */
   .top-banner {
     background: var(--purple);
-    color: var(--white);
+    color: var(--gold);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 7px 16px;
+    padding-top: max(7px, env(safe-area-inset-top, 7px));
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.3px;
   }
 
@@ -1038,14 +1041,14 @@
   }
 
   .sticky-cta {
-    background: var(--purple);
-    color: var(--white);
+    background: var(--gold);
+    color: var(--purple-dark);
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 700;
     padding: 10px 24px;
     border-radius: 28px;
-    border: none;
+    border: 2.5px solid var(--purple-dark);
     text-transform: uppercase;
     letter-spacing: 0.8px;
     cursor: pointer;
@@ -1053,7 +1056,7 @@
   }
 
   .sticky-cta:active {
-    background: var(--purple-dark);
+    background: #d4961e;
   }
 
   /* Extra bottom padding for sticky bar */
@@ -1091,7 +1094,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 340px;
+    height: 420px;
   }
 
   .ingredient-track {
@@ -1831,13 +1834,13 @@
   .footer-brand img {
     width: 140px;
     height: auto;
-    opacity: 0.25;
+    opacity: 1;
   }
 </style>
 </head>
 <body>
 
-<div class="top-banner">bundle + save 15%</div>
+<div class="top-banner">bundle + save</div>
 
 <div class="header">
   <div class="header-menu">
@@ -2001,7 +2004,7 @@
       <rect x="1" y="7" width="15" height="11" rx="1.5"/><path d="M16 10h4l3 4v4h-7"/>
       <circle cx="6" cy="20" r="2"/><circle cx="19" cy="20" r="2"/>
     </svg>
-    fast, free shipping on every order
+    fast shipping on every order
   </div>
 </div>
 
@@ -2018,20 +2021,17 @@
 </div>
 
 <div class="ugc-row">
-  <div class="ugc-card" style="background: linear-gradient(135deg, #d4c9a8 0%, #a89b7a 100%);">
+  <div class="ugc-card" style="background: url('@thecarolinacanines.png') center center / cover no-repeat;">
     <div class="ugc-overlay"></div>
-    <div class="ugc-caption">my vet said his teeth look amazing</div>
-    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
+    <div class="ugc-caption">my vet said his teeth look great</div>
   </div>
-  <div class="ugc-card" style="background: linear-gradient(135deg, #c9b8a8 0%, #8a7e72 100%);">
+  <div class="ugc-card" style="background: url('@bartandbrucesbiglife.png') center center / cover no-repeat;">
     <div class="ugc-overlay"></div>
     <div class="ugc-caption">Greenies didn't work. This did.</div>
-    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
   </div>
-  <div class="ugc-card" style="background: linear-gradient(135deg, #b8a898 0%, #7a6e62 100%);">
+  <div class="ugc-card" style="background: url('@lifeofavita.jpg') center bottom / 105% auto no-repeat;">
     <div class="ugc-overlay"></div>
     <div class="ugc-caption">he goes CRAZY for these treats...</div>
-    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
   </div>
 </div>
 
@@ -2677,7 +2677,7 @@
 
   <div class="footer-tagline">SHAPE MAKES THE DIFFERENCE™</div>
 
-  <div class="footer-brand"><img src="yummy-combs-footer-logo.png" alt="Yummy Combs"></div>
+  <div class="footer-brand"><img src="YC_Logo_USE_THIS_ONE.png" alt="Yummy Combs"></div>
 </div>
 
 <!-- Sticky Bottom Bar -->
