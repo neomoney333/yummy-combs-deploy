@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(which vercel:*)"
+      "Bash(which vercel:*)",
+      "Bash(curl:*)",
+      "Bash(~/.local/bin/gh auth:*)",
+      "Bash(~/.local/bin/gh repo:*)"
     ]
   }
 }
