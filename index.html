@@ -68,14 +68,18 @@
   }
 
   .header-logo {
-    height: 22px;
+    height: 32px;
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: center;
   }
 
   .header-logo img {
     height: 100%;
     width: auto;
+    max-width: 200px;
+    object-fit: contain;
   }
 
   /* === PROMO BAR === */
@@ -133,22 +137,26 @@
     position: relative;
     overflow: hidden;
     background: var(--purple-light);
+    aspect-ratio: 1 / 1;
   }
 
   .product-carousel-track {
     display: flex;
     transition: transform 0.4s ease;
+    height: 100%;
   }
 
   .product-carousel-slide {
     min-width: 100%;
     flex-shrink: 0;
+    height: 100%;
   }
 
   .product-carousel-slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
   }
 
   .product-carousel-dots {
@@ -678,6 +686,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 15%;
   }
 
   .vet-name {
@@ -813,7 +822,7 @@
     font-weight: 400;
   }
 
-  .accordion-item.open .accordion-body { max-height: 300px; }
+  .accordion-item.open .accordion-body { max-height: 500px; }
 
   /* === VIDEO HERO / IMAGE SECTION === */
   .video-hero {
@@ -1078,37 +1087,72 @@
   .ingredient-carousel {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 340px;
   }
 
   .ingredient-track {
-    display: flex;
-    transition: transform 0.4s ease;
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
   .ingredient-slide {
-    min-width: 100%;
-    flex-shrink: 0;
+    position: absolute;
+    width: 68%;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
   }
 
-  .ingredient-img {
-    width: calc(100% - 0px);
-    aspect-ratio: 4/5;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-bottom: 14px;
+  .ingredient-slide.slide-center {
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
   }
 
-  /* Placeholder for ingredient images */
+  .ingredient-slide.slide-left {
+    left: 0;
+    transform: translateX(-82%);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .ingredient-slide.slide-right {
+    right: 0;
+    left: auto;
+    transform: translateX(82%);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .ingredient-slide .ingredient-name,
+  .ingredient-slide .ingredient-desc {
+    transition: opacity 0.4s ease;
+  }
+
+  .ingredient-slide.slide-left .ingredient-name,
+  .ingredient-slide.slide-left .ingredient-desc,
+  .ingredient-slide.slide-right .ingredient-name,
+  .ingredient-slide.slide-right .ingredient-desc {
+    opacity: 0;
+  }
+
+  .ingredient-img,
   .ingredient-img-placeholder {
     width: 100%;
-    aspect-ratio: 4/5;
-    border-radius: 12px;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    object-fit: cover;
     margin-bottom: 14px;
     display: block;
-    object-fit: cover;
     overflow: hidden;
   }
 
@@ -1129,30 +1173,6 @@
     margin: 0 auto;
   }
 
-  /* Carousel dots */
-  .ingredient-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-  }
-
-  .ingredient-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #d8cde0;
-    cursor: pointer;
-    transition: background 0.2s, width 0.2s;
-    border: none;
-    padding: 0;
-  }
-
-  .ingredient-dot.active {
-    background: var(--purple);
-    width: 24px;
-    border-radius: 4px;
-  }
 
   /* === US VS THEM COMPARISON === */
   .comparison-section {
@@ -1822,7 +1842,7 @@
       <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
     </svg>
   </div>
-  <div class="header-logo"><img src="yummy-combs-logo.png" alt="Yummy Combs"></div>
+  <div class="header-logo"><img src="replace.png" alt="Yummy Combs"></div>
   <div class="header-cart">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>
@@ -1845,7 +1865,7 @@
 
 <div class="product-carousel" id="productCarousel">
   <div class="product-carousel-track" id="productTrack">
-    <div class="product-carousel-slide"><img src="YC_24oz_USA_MD.png" alt="Yummy Combs 24oz Value Pack"></div>
+    <div class="product-carousel-slide"><img src="white.jpg" alt="Yummy Combs 24oz Value Pack"></div>
     <div class="product-carousel-slide"><img src="DogsLoveTheTaste.jpg" alt="Dogs Love The Taste"></div>
     <div class="product-carousel-slide"><img src="EasierThanBrushing.webp" alt="Easier Than Brushing"></div>
     <div class="product-carousel-slide"><img src="Shape.webp" alt="Shape Makes The Dental Care Difference"></div>
@@ -2052,8 +2072,8 @@
 </div>
 
 <!-- Hero Image -->
-<div style="width:100%;">
-  <img src="healthy-smiles-hero.png" alt="Healthy Smiles, Every Day" style="width:100%; height:auto; display:block;">
+<div style="width:100%; overflow:hidden;">
+  <img src="hf_20260316_220901_d03f5f95-b46b-491e-a94b-aa328883195e.png" alt="Healthy Smiles, Every Day" style="width:100%; display:block;">
 </div>
 
 <!-- How It Works / Benefits -->
@@ -2166,13 +2186,6 @@
     </div>
   </div>
 
-  <div class="ingredient-dots">
-    <button class="ingredient-dot active" onclick="goToSlide(0)"></button>
-    <button class="ingredient-dot" onclick="goToSlide(1)"></button>
-    <button class="ingredient-dot" onclick="goToSlide(2)"></button>
-    <button class="ingredient-dot" onclick="goToSlide(3)"></button>
-    <button class="ingredient-dot" onclick="goToSlide(4)"></button>
-  </div>
 </div>
 
 <!-- Us vs. Them Comparison -->
@@ -2828,17 +2841,33 @@
     observer.observe(atcSection);
   }
 
-  // Ingredient carousel
+  // Infinite ingredient carousel
   let currentSlide = 0;
-  const totalSlides = 5;
-  const track = document.getElementById('ingredientTrack');
-  const dots = document.querySelectorAll('.ingredient-dot');
+  const slides = document.querySelectorAll('.ingredient-slide');
+  const totalSlides = slides.length;
+  function mod(n, m) { return ((n % m) + m) % m; }
 
   function goToSlide(n) {
-    currentSlide = n;
-    track.style.transform = `translateX(-${n * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+    currentSlide = mod(n, totalSlides);
+    const prev = mod(currentSlide - 1, totalSlides);
+    const next = mod(currentSlide + 1, totalSlides);
+
+    slides.forEach((s) => {
+      s.classList.remove('slide-center', 'slide-left', 'slide-right');
+      s.style.opacity = '0';
+      s.style.pointerEvents = 'none';
+    });
+
+    slides[prev].classList.add('slide-left');
+    slides[prev].style.opacity = '1';
+    slides[currentSlide].classList.add('slide-center');
+    slides[currentSlide].style.opacity = '1';
+    slides[currentSlide].style.pointerEvents = 'auto';
+    slides[next].classList.add('slide-right');
+    slides[next].style.opacity = '1';
   }
+
+  goToSlide(0);
 
   // Touch swipe
   let touchStartX = 0;
@@ -2850,8 +2879,8 @@
     carousel.addEventListener('touchend', e => {
       const diff = touchStartX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 40) {
-        if (diff > 0 && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
-        else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+        if (diff > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
       }
     }, { passive: true });
   }
