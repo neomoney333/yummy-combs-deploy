@@ -1863,9 +1863,9 @@
     <div class="promo-sub">Best-selling bundle — save $49.98</div>
   </div>
   <div class="promo-images">
-    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
-    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
-    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
+    <img class="promo-img-placeholder" src="Untitled design (13).png" alt="Yummy Combs" style="object-fit:cover; background:white;">
+    <img class="promo-img-placeholder" src="Untitled design (13).png" alt="Yummy Combs" style="object-fit:cover; background:white;">
+    <img class="promo-img-placeholder" src="Untitled design (13).png" alt="Yummy Combs" style="object-fit:cover; background:white;">
   </div>
 </div>
 
@@ -1888,7 +1888,7 @@
   </div>
 </div>
 
-<div class="product-info">
+<div class="product-info" id="productInfo">
   <div class="badges">
     <span class="badge badge-gold">VOHC accepted!</span>
     <span class="badge badge-outline">dogs love it</span>
@@ -2683,7 +2683,7 @@
 <!-- Sticky Bottom Bar -->
 <div class="sticky-bottom" id="stickyBar">
   <span class="sticky-product-name">Yummy Combs</span>
-  <button class="sticky-cta">SHOP NOW</button>
+  <button class="sticky-cta" onclick="document.getElementById('productInfo').scrollIntoView({behavior:'smooth'})">SHOP NOW</button>
 </div>
 
 <div class="page-bottom-spacer"></div>
@@ -2795,7 +2795,7 @@
   updatePrices();
 
   document.querySelectorAll('.accordion-item.open .accordion-body').forEach(el => {
-    el.style.maxHeight = el.scrollHeight + 'px';
+    el.style.maxHeight = (el.scrollHeight + 20) + 'px';
   });
 
   function toggleAccordion(header) {
@@ -2810,7 +2810,7 @@
     });
     if (!isOpen) {
       item.classList.add('open');
-      body.style.maxHeight = body.scrollHeight + 'px';
+      body.style.maxHeight = (body.scrollHeight + 20) + 'px';
       icon.textContent = '−';
     }
   }
