@@ -39,12 +39,12 @@
   /* === TOP BANNER === */
   .top-banner {
     background: var(--purple);
-    color: var(--white);
+    color: var(--gold);
     text-align: center;
     padding: 7px 16px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.3px;
   }
 
@@ -129,7 +129,8 @@
     width: 36px;
     height: 42px;
     border-radius: 4px;
-    object-fit: cover;
+    object-fit: contain;
+    background: var(--white);
   }
 
   /* === PRODUCT IMAGE CAROUSEL === */
@@ -137,7 +138,7 @@
     position: relative;
     overflow: hidden;
     background: var(--white);
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
   }
 
   .product-carousel-track {
@@ -1038,8 +1039,9 @@
   }
 
   .sticky-cta {
-    background: var(--purple);
-    color: var(--white);
+    background: var(--gold);
+    color: var(--purple-dark);
+    border: 2.5px solid var(--purple-dark);
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -1053,7 +1055,7 @@
   }
 
   .sticky-cta:active {
-    background: var(--purple-dark);
+    background: #d4961e;
   }
 
   /* Extra bottom padding for sticky bar */
@@ -1837,7 +1839,7 @@
 </head>
 <body>
 
-<div class="top-banner">bundle + save 15%</div>
+<div class="top-banner">bundle + save</div>
 
 <div class="header">
   <div class="header-menu">
