@@ -1836,6 +1836,286 @@
     height: auto;
     opacity: 1;
   }
+  /* Desktop/mobile visibility helpers */
+  .vet-endorsement-left { display: none; }
+  .vet-endorsement-mobile { display: block; }
+
+  /* === DESKTOP STYLES === */
+  @media (min-width: 768px) {
+    /* Header - full width, properly spaced */
+    .header {
+      padding: 12px 40px;
+    }
+    .header-logo { height: 38px; }
+    .header-logo img { max-width: 220px; }
+    .header-menu svg, .header-cart svg { width: 26px; height: 26px; }
+
+    /* Top Banner */
+    .top-banner { font-size: 13px; padding: 10px 20px; }
+
+    /* Promo Bar */
+    .promo-bar {
+      padding: 14px 40px;
+      justify-content: center;
+      gap: 24px;
+    }
+    .promo-label { font-size: 9px; letter-spacing: 1px; }
+    .promo-headline { font-size: 16px; }
+    .promo-sub { font-size: 11px; }
+    .promo-images { gap: 8px; }
+    .promo-img-placeholder { width: 50px; height: 58px; border-radius: 6px; }
+
+    /* Two-Column Product Layout - key CRO: product + buy side by side */
+    .product-page-wrapper {
+      display: flex;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 40px;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .product-carousel {
+      aspect-ratio: 1 / 1;
+    }
+
+    .product-right-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-info { padding: 0; }
+    .purchase-options { padding: 0; }
+    .atc-section { padding: 10px 0 8px; }
+    .product-title { font-size: 28px; }
+    .product-description { font-size: 15px; line-height: 1.6; }
+
+    /* Vet Endorsement - show in left col on desktop */
+    .vet-endorsement-left {
+      display: block;
+      margin: 16px 0 0;
+    }
+    .vet-endorsement-mobile { display: none; }
+    .vet-quote { font-size: 14px; line-height: 1.6; }
+
+    /* Left column */
+    .product-left-col {
+      flex: 1;
+      position: sticky;
+      top: 70px;
+      min-width: 0;
+    }
+
+    .product-carousel {
+      position: relative;
+      top: auto;
+    }
+
+    /* UGC Row - social proof cards */
+    .ugc-row {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      justify-content: center;
+      gap: 16px;
+      overflow-x: visible;
+    }
+    .ugc-card { width: 180px; height: 260px; border-radius: 12px; }
+
+    /* Accordion - product details */
+    .accordion-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .accordion-header { font-size: 15px; }
+    .accordion-body-inner { font-size: 14px; }
+
+    /* Hero Image */
+    .hero-image-section {
+      max-width: 520px;
+      margin: 20px auto;
+    }
+
+    /* Benefits - feature highlights */
+    .benefits-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 16px;
+    }
+    .benefits-eyebrow { font-size: 11px; }
+    .benefits-headline { font-size: 26px; }
+    .benefit-card { padding: 14px 16px; }
+    .benefit-card-label { font-size: 15px; }
+    .benefit-card-body-inner { font-size: 13px; }
+
+    /* Ingredients */
+    .ingredients-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .ingredient-carousel { height: 420px; }
+    .ingredient-slide { width: 40%; }
+
+    /* Comparison - us vs them */
+    .comparison-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 30px 40px;
+      border-radius: 16px;
+    }
+    .comparison-headline { font-size: 20px; }
+    .comp-header { grid-template-columns: 1fr 100px 80px; }
+    .comp-row { grid-template-columns: 1fr 100px 80px; }
+    .comp-feature { font-size: 14px; }
+
+    /* Reviews */
+    .reviews-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 30px 40px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 30px 40px;
+    }
+
+    /* Footer */
+    .footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .footer-brand img { width: 100px; }
+
+    /* Sticky Bottom - CTA always visible */
+    .sticky-bottom {
+      max-width: 100%;
+      padding: 12px 40px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    /* Header */
+    .header { padding: 14px 60px; }
+    .header-logo { height: 42px; }
+    .top-banner { font-size: 14px; }
+
+    /* Promo Bar */
+    .promo-bar {
+      padding: 16px 60px;
+      justify-content: center;
+      gap: 32px;
+    }
+    .promo-label { font-size: 10px; letter-spacing: 1.2px; }
+    .promo-headline { font-size: 18px; }
+    .promo-sub { font-size: 12px; }
+    .promo-images { gap: 10px; }
+    .promo-img-placeholder { width: 58px; height: 68px; border-radius: 8px; }
+
+    /* Two-Column Product - wider on large screens */
+    .product-page-wrapper {
+      max-width: 1100px;
+      padding: 30px 60px;
+      gap: 50px;
+    }
+
+    .product-right-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-title { font-size: 32px; }
+    .product-description { font-size: 16px; }
+
+    /* Vet Endorsement - in left col */
+    .vet-endorsement-left {
+      margin: 20px 0 0;
+    }
+
+    .product-left-col {
+      flex: 1.15;
+    }
+
+    /* UGC */
+    .ugc-row {
+      max-width: 860px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+    .ugc-card { width: 220px; height: 310px; }
+    .ugc-caption { font-size: 13px; }
+
+    /* Accordion */
+    .accordion-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* Hero Image */
+    .hero-image-section {
+      max-width: 560px;
+      margin: 24px auto;
+    }
+
+    /* Benefits */
+    .benefits-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 50px 60px;
+    }
+    .benefits-headline { font-size: 28px; }
+    .benefit-card { padding: 16px 20px; }
+    .benefit-card-label { font-size: 16px; }
+
+    /* Ingredients */
+    .ingredients-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 50px 60px;
+    }
+    .ingredient-carousel { height: 460px; }
+
+    /* Comparison */
+    .comparison-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 60px;
+    }
+    .comparison-headline { font-size: 22px; }
+
+    /* Reviews */
+    .reviews-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 30px 60px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 30px 60px;
+    }
+
+    /* Footer */
+    .footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 60px;
+    }
+
+    /* Sticky Bottom */
+    .sticky-bottom { padding: 14px 60px; }
+    .sticky-product-name { font-size: 18px; }
+    .sticky-cta { font-size: 16px; padding: 12px 32px; }
+  }
 </style>
 </head>
 <body>
@@ -1869,6 +2149,8 @@
   </div>
 </div>
 
+<div class="product-page-wrapper">
+<div class="product-left-col">
 <div class="product-carousel" id="productCarousel">
   <div class="product-carousel-track" id="productTrack">
     <div class="product-carousel-slide"><img src="white.jpg" alt="Yummy Combs 24oz Value Pack"></div>
@@ -1887,7 +2169,20 @@
     <button class="product-carousel-dot" onclick="goToProductSlide(5)"></button>
   </div>
 </div>
+<!-- Vet Endorsement (inside left col for desktop) -->
+<div class="vet-endorsement vet-endorsement-left">
+  <div class="vet-header">
+    <div class="vet-avatar"><img src="vet-headshot.webp" alt="Dr. Robert Parkins"></div>
+    <div class="vet-name">
+      <svg viewBox="0 0 16 16" fill="var(--purple)"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Endorsed by Dr. Robert Parkins, CVM
+    </div>
+  </div>
+  <div class="vet-quote">"In my practice, I care about three things: Does it work? Will owners actually use it? Is it safe for daily, long-term use? Yummy Combs checks all three boxes and then some. It's the only dental treat I feel confident recommending because it actually removes hardened tartar from those hard-to-reach teeth, supports your dog's overall health, and fits seamlessly into a real dog owner's daily routine. Plus, I love seeing dogs go absolutely wild for them!"</div>
+</div>
+</div><!-- end product-left-col -->
 
+<div class="product-right-col">
 <div class="product-info" id="productInfo">
   <div class="badges">
     <span class="badge badge-gold">VOHC accepted!</span>
@@ -2008,8 +2303,11 @@
   </div>
 </div>
 
-<!-- Vet Endorsement -->
-<div class="vet-endorsement">
+</div><!-- end product-right-col -->
+</div><!-- end product-page-wrapper -->
+
+<!-- Vet Endorsement (mobile only) -->
+<div class="vet-endorsement vet-endorsement-mobile">
   <div class="vet-header">
     <div class="vet-avatar"><img src="vet-headshot.webp" alt="Dr. Robert Parkins"></div>
     <div class="vet-name">
@@ -2075,7 +2373,7 @@
 </div>
 
 <!-- Hero Image -->
-<div style="width:100%; overflow:hidden;">
+<div class="hero-image-section" style="width:100%; overflow:hidden;">
   <img src="hf_20260316_220901_d03f5f95-b46b-491e-a94b-aa328883195e.png" alt="Healthy Smiles, Every Day" style="width:100%; display:block;">
 </div>
 
