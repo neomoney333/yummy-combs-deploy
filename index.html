@@ -1,0 +1,2900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Yummy Combs - Dental Treats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --purple: #6B3A7D;
+    --purple-dark: #522B62;
+    --purple-light: #f0e4f5;
+    --purple-mid: #8B5A9E;
+    --gold: #E8A832;
+    --gold-light: #FEF3DC;
+    --teal: #2BBAB4;
+    --teal-light: #d4f3f1;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-gray: #5a5a6a;
+    --border: #dcdfe8;
+    --sub-bg: #f3e8f8;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    max-width: 393px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* === TOP BANNER === */
+  .top-banner {
+    background: var(--purple);
+    color: var(--white);
+    text-align: center;
+    padding: 7px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* === HEADER === */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 110;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  }
+
+  .header-menu svg, .header-cart svg {
+    width: 24px;
+    height: 24px;
+    color: var(--purple);
+  }
+
+  .header-logo {
+    height: 22px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  /* === PROMO BAR === */
+  .promo-bar {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, var(--purple-mid) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .promo-text { color: var(--white); }
+
+  .promo-label {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 0px;
+  }
+
+  .promo-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.1px;
+    line-height: 1.2;
+  }
+
+  .promo-sub {
+    font-size: 9px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 1px;
+  }
+
+  .promo-images {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  .promo-img-placeholder {
+    width: 36px;
+    height: 42px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  /* === PRODUCT IMAGE CAROUSEL === */
+  .product-carousel {
+    position: relative;
+    overflow: hidden;
+    background: var(--purple-light);
+  }
+
+  .product-carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .product-carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+
+  .product-carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+  }
+
+  .product-carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, width 0.2s;
+  }
+
+  .product-carousel-dot.active {
+    background: var(--white);
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* === PRODUCT INFO === */
+  .product-info {
+    padding: 14px 16px 0;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 18px;
+    letter-spacing: 0.1px;
+  }
+
+  .badge-gold {
+    background: var(--gold);
+    color: var(--purple-dark);
+  }
+
+  .badge-outline {
+    background: transparent;
+    color: var(--purple);
+    border: 1.5px solid var(--purple);
+  }
+
+  .product-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--purple);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 0px;
+    color: var(--purple);
+    font-size: 16px;
+    letter-spacing: -1px;
+  }
+
+  .rating-text {
+    font-size: 14px;
+    color: var(--purple);
+    font-weight: 600;
+  }
+
+  .product-description {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--purple);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  /* === SELECTOR ROW === */
+  .selector-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .size-select {
+    flex: 1;
+    position: relative;
+  }
+
+  .size-select select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-dark);
+    background: var(--white);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .size-select::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--text-gray);
+    pointer-events: none;
+  }
+
+  .qty-selector {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .qty-btn {
+    width: 40px;
+    height: 42px;
+    border: none;
+    background: var(--white);
+    font-size: 16px;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+  }
+
+  .qty-value {
+    width: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+
+  /* === PURCHASE OPTIONS === */
+  .purchase-options {
+    padding: 12px 16px 0;
+  }
+
+  /* One Time / Subscribe toggle */
+  .purchase-toggle {
+    display: flex;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .purchase-toggle-btn {
+    flex: 1;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--white);
+    color: var(--text-gray);
+    transition: all 0.15s;
+  }
+
+  .purchase-toggle-btn.active {
+    background: var(--purple);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* Dog size selector */
+  .dog-size-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple-dark);
+    margin-bottom: 6px;
+  }
+
+  .dog-size-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .dog-size-btn {
+    padding: 8px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-align: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.15s;
+  }
+
+  .dog-size-btn.active {
+    border-color: var(--purple);
+    background: var(--purple-light);
+    color: var(--purple);
+    font-weight: 600;
+  }
+
+  /* Bundle options */
+  .bundle-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .bundle-card {
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.15s;
+    position: relative;
+  }
+
+  .bundle-card.active {
+    border-color: var(--purple);
+    background: #faf5ff;
+  }
+
+  .bundle-card-badge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--purple-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .bundle-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+  }
+
+  .bundle-card-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bundle-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+  }
+
+  .bundle-card.active .bundle-radio {
+    border-color: var(--purple);
+  }
+
+  .bundle-radio-inner {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--purple);
+    transition: all 0.15s;
+  }
+
+  .bundle-card.active .bundle-radio-inner {
+    width: 10px;
+    height: 10px;
+  }
+
+  .bundle-card-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--purple-dark);
+    line-height: 1.3;
+  }
+
+  .bundle-card-desc {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-gray);
+  }
+
+  .bundle-card-pricing {
+    text-align: right;
+  }
+
+  .bundle-price-strike {
+    font-size: 12px;
+    color: var(--text-gray);
+    text-decoration: line-through;
+  }
+
+  .bundle-price-current {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  .bundle-price-single {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--purple);
+  }
+
+  /* Subscribe savings note */
+  .sub-savings-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  .sub-savings-note strong {
+    color: var(--purple);
+    font-weight: 700;
+  }
+
+  /* Upsell */
+  .upsell-card {
+    border: 1.5px dashed var(--purple);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    background: #faf5ff;
+    cursor: pointer;
+  }
+
+  .upsell-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid var(--purple);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upsell-checkbox.checked {
+    background: var(--purple);
+  }
+
+  .upsell-checkbox.checked svg {
+    display: block;
+  }
+
+  .upsell-checkbox svg {
+    display: none;
+    width: 12px;
+    height: 12px;
+    color: var(--white);
+  }
+
+  .upsell-text {
+    flex: 1;
+  }
+
+  .upsell-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  .upsell-desc {
+    font-size: 11px;
+    color: var(--text-gray);
+    line-height: 1.3;
+  }
+
+  .upsell-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--purple);
+    flex-shrink: 0;
+  }
+
+  /* Trust badges */
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 0 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-gray);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .trust-item svg {
+    width: 14px;
+    height: 14px;
+    color: var(--purple);
+  }
+
+  /* === ADD TO CART === */
+  .atc-section {
+    padding: 10px 16px 8px;
+    background: var(--white);
+  }
+
+  .atc-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 28px;
+    border: 2.5px solid var(--purple-dark);
+    background: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--purple-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .atc-btn:active { background: #d4961e; }
+
+  .shipping-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--purple);
+  }
+
+  .shipping-note svg { width: 18px; height: 18px; color: var(--purple); }
+
+  /* === VET ENDORSEMENT === */
+  .vet-endorsement {
+    margin: 8px 16px 0;
+    background: var(--purple-light);
+    border-radius: 10px;
+    padding: 12px 12px;
+  }
+
+  .vet-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .vet-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .vet-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .vet-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple-dark);
+    line-height: 1.3;
+  }
+
+  .vet-name svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .vet-quote {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--purple-dark);
+    font-weight: 400;
+  }
+
+  .vet-attribution {
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--purple-dark);
+  }
+
+  /* === UGC VIDEO ROW === */
+  .ugc-row {
+    padding: 10px 16px 12px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ugc-row::-webkit-scrollbar { display: none; }
+
+  .ugc-card {
+    flex-shrink: 0;
+    width: 118px;
+    height: 180px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .ugc-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 100%);
+    pointer-events: none;
+  }
+
+  .ugc-caption {
+    position: absolute;
+    top: 8px; left: 8px; right: 8px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 6px;
+    padding: 5px 7px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+
+  .ugc-play {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ugc-play svg { width: 12px; height: 12px; color: var(--text-dark); margin-left: 2px; }
+
+  /* === ACCORDION === */
+  .accordion-section { padding: 0 16px 14px; }
+
+  .accordion-item { border-top: 1.5px solid #e6dcea; }
+  .accordion-item:last-child { border-bottom: 1.5px solid #e6dcea; }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .accordion-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple);
+  }
+
+  .accordion-icon {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--purple);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-body-inner {
+    padding-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--purple);
+    font-weight: 400;
+  }
+
+  .accordion-item.open .accordion-body { max-height: 300px; }
+
+  /* === VIDEO HERO / IMAGE SECTION === */
+  .video-hero {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background: linear-gradient(180deg, #f0e8e2 0%, #d8ccc4 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-hero-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--white);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    z-index: 2;
+    position: relative;
+  }
+
+  .video-pause {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    z-index: 3;
+  }
+
+  .video-pause .bar {
+    width: 3px;
+    height: 14px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1px;
+  }
+
+  /* Dog silhouette placeholder */
+  .video-hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(170deg, #f5ede6 0%, #e8ddd4 40%, #c4b5a8 100%);
+  }
+
+  .video-hero-bowl {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+    background: #c9937a;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .video-hero-bowl::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 10%;
+    right: 10%;
+    height: 30px;
+    background: #d4a48e;
+    border-radius: 50% 50% 0 0;
+  }
+
+  /* === HOW IT WORKS / BENEFITS SECTION === */
+  .benefits-section {
+    background: #e8f0fa;
+    padding: 20px 14px 18px;
+    text-align: center;
+  }
+
+  .benefits-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
+  .benefits-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .benefit-card-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .benefit-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .benefit-card-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--white);
+  }
+
+  .benefit-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  .benefit-card-toggle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--purple);
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+  }
+
+  .benefit-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .benefit-card-body-inner {
+    padding: 8px 12px 4px 54px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--purple);
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .benefit-card-wrap {
+    background: var(--white);
+    border-radius: 10px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .benefit-card-wrap.open .benefit-card-body {
+    max-height: 200px;
+  }
+
+  .benefit-card-wrap.open .benefit-card-toggle {
+    transform: rotate(45deg);
+  }
+
+  /* === STICKY BOTTOM BAR === */
+  .sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 393px;
+    background: var(--white);
+    border-top: 1px solid #e6dcea;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    display: none;
+  }
+
+  .sticky-bottom.visible {
+    display: flex;
+  }
+
+  .sticky-product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple);
+  }
+
+  .sticky-cta {
+    background: var(--purple);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 28px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sticky-cta:active {
+    background: var(--purple-dark);
+  }
+
+  /* Extra bottom padding for sticky bar */
+  .page-bottom-spacer {
+    height: 60px;
+  }
+
+  /* === INGREDIENTS SPOTLIGHT === */
+  .ingredients-section {
+    background: var(--white);
+    padding: 20px 16px 24px;
+    text-align: center;
+  }
+
+  .ingredients-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .ingredients-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .ingredient-carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ingredient-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .ingredient-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ingredient-img {
+    width: calc(100% - 0px);
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 14px;
+  }
+
+  /* Placeholder for ingredient images */
+  .ingredient-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .ingredient-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+
+  .ingredient-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--purple);
+    font-weight: 400;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Carousel dots */
+  .ingredient-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .ingredient-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d8cde0;
+    cursor: pointer;
+    transition: background 0.2s, width 0.2s;
+    border: none;
+    padding: 0;
+  }
+
+  .ingredient-dot.active {
+    background: var(--purple);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* === US VS THEM COMPARISON === */
+  .comparison-section {
+    background: var(--purple);
+    padding: 16px 12px 20px;
+  }
+
+  .comparison-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 18px 12px 14px;
+    text-align: center;
+  }
+
+  .comparison-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
+  .comparison-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  /* Table */
+  .comp-table {
+    width: 100%;
+    text-align: left;
+  }
+
+  .comp-header {
+    display: grid;
+    grid-template-columns: 1fr 80px 64px;
+    align-items: center;
+    background: #eaf0fa;
+    border-radius: 6px 6px 0 0;
+    padding: 10px 10px;
+    border-bottom: 1px solid #d8e2f0;
+  }
+
+  .comp-header-spacer {}
+
+  .comp-header-us {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .comp-header-them {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-gray);
+    text-align: center;
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1fr 80px 64px;
+    align-items: center;
+    padding: 10px 10px;
+    border-bottom: 1px solid #e8edf5;
+    background: #f5f8fd;
+  }
+
+  .comp-row:nth-child(odd) {
+    background: #eaf0fa;
+  }
+
+  .comp-row:last-child {
+    border-bottom: none;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .comp-feature {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--purple);
+    line-height: 1.3;
+  }
+
+  .comp-check {
+    display: flex;
+    justify-content: center;
+  }
+
+  .comp-check-yes {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comp-check-yes svg {
+    width: 13px;
+    height: 13px;
+    color: var(--gold);
+  }
+
+  .comp-check-no {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #c8cdd8;
+    background: transparent;
+  }
+
+  /* === REVIEWS SECTION === */
+  .reviews-section {
+    padding: 20px 16px 0;
+    text-align: center;
+  }
+
+  .reviews-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .reviews-subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .write-review-btn {
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 32px;
+    border: 3px solid var(--purple-dark);
+    background: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple-dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 28px;
+  }
+
+  .write-review-btn:active {
+    background: #d4961e;
+  }
+
+  .reviews-score {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--purple-dark);
+    margin-bottom: 2px;
+  }
+
+  .reviews-stars {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 4px;
+    color: var(--purple);
+    font-size: 18px;
+  }
+
+  .reviews-count-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-gray);
+    margin-bottom: 28px;
+  }
+
+  /* Sort bar */
+  .reviews-sort-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-top: 1px solid #e6e8ee;
+  }
+
+  .reviews-sort-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--purple-dark);
+  }
+
+  .reviews-sort-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .reviews-sort-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--purple-dark);
+  }
+
+  .reviews-sort-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .reviews-sort-select select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-dark);
+    border: none;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+    padding-right: 16px;
+  }
+
+  .reviews-sort-select::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--text-dark);
+    pointer-events: none;
+  }
+
+  /* === REVIEW CARDS === */
+  .review-card {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e6e8ee;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .review-avatar {
+    width: 48px;
+    height: 42px;
+    border-radius: 50%;
+    background: #e4e0ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    flex-shrink: 0;
+  }
+
+  .review-meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--purple-dark);
+  }
+
+  .review-verified {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--purple-dark);
+  }
+
+  .review-verified svg {
+    width: 14px;
+    height: 14px;
+    color: var(--purple);
+  }
+
+  .review-recommend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--purple);
+    margin-bottom: 10px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .review-recommend-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .review-recommend-icon svg {
+    width: 10px;
+    height: 10px;
+    color: var(--white);
+  }
+
+  .review-stars-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .review-stars {
+    color: var(--purple);
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+
+  .review-date {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-gray);
+  }
+
+  .review-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+
+  .review-body {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--purple);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .review-shop-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dark);
+    background: #f0f0f4;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+
+  .review-shop-badge strong {
+    font-weight: 800;
+    font-style: italic;
+  }
+
+  .review-helpful {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text-gray);
+    font-weight: 400;
+  }
+
+  .review-helpful-action {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    color: var(--text-gray);
+  }
+
+  .review-helpful-action svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Review attributes */
+  .review-attributes {
+    margin-bottom: 10px;
+  }
+
+  .review-attr-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 13px;
+  }
+
+  .review-attr-label {
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  .review-attr-value {
+    font-weight: 400;
+    color: var(--purple);
+    text-align: right;
+  }
+
+  .review-qualities {
+    margin-bottom: 10px;
+  }
+
+  .review-qualities-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+    margin-bottom: 2px;
+  }
+
+  .review-qualities-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.4;
+  }
+
+  /* Show more reviews */
+  .reviews-list .review-card {
+    display: none;
+  }
+
+  .reviews-list .review-card.visible {
+    display: block;
+  }
+
+  .show-more-btn {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 8px auto 12px;
+    padding: 12px;
+    border-radius: 28px;
+    border: 2px solid var(--purple);
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s;
+  }
+
+  .show-more-btn:active {
+    background: var(--purple-light);
+  }
+
+  .show-more-btn.hidden {
+    display: none;
+  }
+
+  /* === FAQ SECTION === */
+  .faq-section {
+    background: var(--purple);
+    padding: 24px 16px 20px;
+  }
+
+  .faq-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    opacity: 0.85;
+  }
+
+  .faq-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .faq-item {
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 14px 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    gap: 12px;
+  }
+
+  .faq-question-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+  }
+
+  .faq-toggle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    opacity: 0.7;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+    line-height: 1;
+    margin-top: 1px;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer-inner {
+    padding-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 400px;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--purple);
+    padding: 20px 16px 16px;
+    text-align: center;
+  }
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+
+  .footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-socials svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-links-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.4);
+  }
+
+  .footer-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-brand img {
+    width: 140px;
+    height: auto;
+    opacity: 0.25;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">bundle + save 15%</div>
+
+<div class="header">
+  <div class="header-menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </div>
+  <div class="header-logo"><img src="yummy-combs-logo.png" alt="Yummy Combs"></div>
+  <div class="header-cart">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>
+    </svg>
+  </div>
+</div>
+
+<div class="promo-bar">
+  <div class="promo-text">
+    <div class="promo-label">LIMITED TIME OFFER</div>
+    <div class="promo-headline">BUY 2 BAGS, GET 1 FREE</div>
+    <div class="promo-sub">Best-selling bundle — save $49.98</div>
+  </div>
+  <div class="promo-images">
+    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
+    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
+    <img class="promo-img-placeholder" src="YC_24oz_USA_MD.png" alt="Yummy Combs" style="object-fit:cover; background:none;">
+  </div>
+</div>
+
+<div class="product-carousel" id="productCarousel">
+  <div class="product-carousel-track" id="productTrack">
+    <div class="product-carousel-slide"><img src="YC_24oz_USA_MD.png" alt="Yummy Combs 24oz Value Pack"></div>
+    <div class="product-carousel-slide"><img src="DogsLoveTheTaste.jpg" alt="Dogs Love The Taste"></div>
+    <div class="product-carousel-slide"><img src="EasierThanBrushing.webp" alt="Easier Than Brushing"></div>
+    <div class="product-carousel-slide"><img src="Shape.webp" alt="Shape Makes The Dental Care Difference"></div>
+    <div class="product-carousel-slide"><img src="TreatOnceADay.webp" alt="Treat Once A Day"></div>
+    <div class="product-carousel-slide"><img src="sizesfordogs.webp" alt="Sizes For Every Dog"></div>
+  </div>
+  <div class="product-carousel-dots" id="productDots">
+    <button class="product-carousel-dot active" onclick="goToProductSlide(0)"></button>
+    <button class="product-carousel-dot" onclick="goToProductSlide(1)"></button>
+    <button class="product-carousel-dot" onclick="goToProductSlide(2)"></button>
+    <button class="product-carousel-dot" onclick="goToProductSlide(3)"></button>
+    <button class="product-carousel-dot" onclick="goToProductSlide(4)"></button>
+    <button class="product-carousel-dot" onclick="goToProductSlide(5)"></button>
+  </div>
+</div>
+
+<div class="product-info">
+  <div class="badges">
+    <span class="badge badge-gold">VOHC accepted!</span>
+    <span class="badge badge-outline">dogs love it</span>
+  </div>
+  <h1 class="product-title">Yummy Combs</h1>
+  <div class="rating">
+    <div class="stars">★★★★<span style="opacity:0.35">★</span></div>
+    <span class="rating-text">4.7 (2,400+ Reviews)</span>
+  </div>
+  <p class="product-description">The world's first patented dental treat that safely removes hardened tartar. 360° flossing action with 256 scrubbing surfaces, packed with 44% protein and 12 wellness ingredients.</p>
+  <div class="selector-row">
+    <div class="size-select">
+      <select>
+        <option>Medium (26-50 lbs)</option>
+        <option>X-Small (5.5-12 lbs)</option>
+        <option>Small (13-25 lbs)</option>
+        <option>Large (51-100 lbs)</option>
+        <option>X-Large (100+ lbs)</option>
+      </select>
+    </div>
+    <div class="qty-selector">
+      <button class="qty-btn" id="qtyMinus">−</button>
+      <span class="qty-value" id="qtyVal">1</span>
+      <button class="qty-btn" id="qtyPlus">+</button>
+    </div>
+  </div>
+</div>
+
+<div class="purchase-options">
+  <!-- One Time / Subscribe Toggle -->
+  <div class="purchase-toggle">
+    <button class="purchase-toggle-btn" id="toggleOneTime" onclick="setPurchaseType('onetime')">One Time</button>
+    <button class="purchase-toggle-btn active" id="toggleSub" onclick="setPurchaseType('sub')">Subscribe & Save</button>
+  </div>
+
+  <!-- Dog Size -->
+  <div class="dog-size-label">Dog Size:</div>
+  <div class="dog-size-grid">
+    <button class="dog-size-btn" onclick="setDogSize(this)">Up to 30lbs</button>
+    <button class="dog-size-btn active" onclick="setDogSize(this)">31 - 60lbs</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">61 - 90lbs</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">Over 90lbs</button>
+  </div>
+
+  <!-- Bundle Options -->
+  <div class="bundle-options" id="bundleOptions">
+    <div class="bundle-card" onclick="selectBundle(this, 0)" data-onetime="49.98" data-sub="45.00">
+      <div class="bundle-card-top">
+        <div class="bundle-card-left">
+          <div class="bundle-radio"><div class="bundle-radio-inner"></div></div>
+          <div>
+            <div class="bundle-card-name">1 Bag (30 Day Supply)</div>
+          </div>
+        </div>
+        <div class="bundle-card-pricing" id="price0">
+          <div class="bundle-price-single">$49.98</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bundle-card active" onclick="selectBundle(this, 1)" data-onetime="99.96" data-sub="89.97" data-strike="149.94">
+      <div class="bundle-card-badge">Most Popular</div>
+      <div class="bundle-card-top">
+        <div class="bundle-card-left">
+          <div class="bundle-radio"><div class="bundle-radio-inner"></div></div>
+          <div>
+            <div class="bundle-card-name">Buy 2 Get 1 Free</div>
+            <div class="bundle-card-desc">3 bags total</div>
+          </div>
+        </div>
+        <div class="bundle-card-pricing" id="price1">
+          <div class="bundle-price-strike">$149.94</div>
+          <div class="bundle-price-current">$99.96</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bundle-card" onclick="selectBundle(this, 2)" data-onetime="149.94" data-sub="134.95" data-strike="249.90">
+      <div class="bundle-card-badge">Best Value</div>
+      <div class="bundle-card-top">
+        <div class="bundle-card-left">
+          <div class="bundle-radio"><div class="bundle-radio-inner"></div></div>
+          <div>
+            <div class="bundle-card-name">Buy 3 Get 2 Free</div>
+            <div class="bundle-card-desc">5 bags total</div>
+          </div>
+        </div>
+        <div class="bundle-card-pricing" id="price2">
+          <div class="bundle-price-strike">$249.90</div>
+          <div class="bundle-price-current">$149.94</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-savings-note" id="subNote">*The average subscriber <strong>saves $127</strong></div>
+</div>
+
+<div class="atc-section">
+  <button class="atc-btn" id="atcBtn">ADD TO CART - $99.96</button>
+  <div class="trust-row">
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Lifetime Guarantee
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Made in the USA
+    </div>
+  </div>
+  <div class="shipping-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="1" y="7" width="15" height="11" rx="1.5"/><path d="M16 10h4l3 4v4h-7"/>
+      <circle cx="6" cy="20" r="2"/><circle cx="19" cy="20" r="2"/>
+    </svg>
+    fast, free shipping on every order
+  </div>
+</div>
+
+<!-- Vet Endorsement -->
+<div class="vet-endorsement">
+  <div class="vet-header">
+    <div class="vet-avatar"><img src="vet-headshot.webp" alt="Dr. Robert Parkins"></div>
+    <div class="vet-name">
+      <svg viewBox="0 0 16 16" fill="var(--purple)"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      Endorsed by Dr. Robert Parkins, CVM
+    </div>
+  </div>
+  <div class="vet-quote">"In my practice, I care about three things: Does it work? Will owners actually use it? Is it safe for daily, long-term use? Yummy Combs checks all three boxes and then some. It's the only dental treat I feel confident recommending because it actually removes hardened tartar from those hard-to-reach teeth, supports your dog's overall health, and fits seamlessly into a real dog owner's daily routine. Plus, I love seeing dogs go absolutely wild for them!"</div>
+</div>
+
+<div class="ugc-row">
+  <div class="ugc-card" style="background: linear-gradient(135deg, #d4c9a8 0%, #a89b7a 100%);">
+    <div class="ugc-overlay"></div>
+    <div class="ugc-caption">my vet said his teeth look amazing</div>
+    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
+  </div>
+  <div class="ugc-card" style="background: linear-gradient(135deg, #c9b8a8 0%, #8a7e72 100%);">
+    <div class="ugc-overlay"></div>
+    <div class="ugc-caption">Greenies didn't work. This did.</div>
+    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
+  </div>
+  <div class="ugc-card" style="background: linear-gradient(135deg, #b8a898 0%, #7a6e62 100%);">
+    <div class="ugc-overlay"></div>
+    <div class="ugc-caption">he goes CRAZY for these treats...</div>
+    <div class="ugc-play"><svg viewBox="0 0 12 14" fill="currentColor"><polygon points="0,0 12,7 0,14"/></svg></div>
+  </div>
+</div>
+
+<div class="accordion-section">
+  <div class="accordion-item open">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">why dogs love it</span>
+      <span class="accordion-icon">−</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">The patented honeycomb shape with a crunchy, satisfying texture dogs can't resist. 44% protein packed with chicken flavor — dogs beg for it daily.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">daily serving guide</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">One treat per day. Always feed the correct size for your dog's weight: X-Small (5.5-12 lbs), Small (13-25 lbs), Medium (26-50 lbs), Large (51-100 lbs), X-Large (100+ lbs). Size up for safety.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">how to use</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">Give one Yummy Combs treat per day. The 360° flossing action works as your dog chews — no brushing needed. Always supervise and provide fresh water.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">what's inside</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">Made with real chicken as the #1 ingredient, salmon oil, glucosamine, chondroitin, turmeric, and honey. No grains, no GMOs, no gluten, no artificial colors, flavors, or preservatives. No rawhide. Complete and balanced. Made in the USA.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Image -->
+<div style="width:100%;">
+  <img src="healthy-smiles-hero.png" alt="Healthy Smiles, Every Day" style="width:100%; height:auto; display:block;">
+</div>
+
+<!-- How It Works / Benefits -->
+<div class="benefits-section">
+  <div class="benefits-eyebrow">HOW IT WORKS</div>
+  <div class="benefits-headline">benefits for better<br>dental health</div>
+
+  <div class="benefit-card-wrap" onclick="toggleBenefitCard(this)">
+    <div class="benefit-card">
+      <div class="benefit-card-left">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="10" r="5"/>
+            <path d="M8 10c0-2.2 1.8-4 4-4"/>
+            <circle cx="12" cy="10" r="1.5" fill="currentColor" stroke="none"/>
+            <path d="M9 17c0-1 1-2 3-2s3 1 3 2"/>
+            <ellipse cx="10" cy="19" rx="1.5" ry="1"/>
+            <ellipse cx="14" cy="19" rx="1.5" ry="1"/>
+          </svg>
+        </div>
+        <span class="benefit-card-label">supports fresh breath</span>
+      </div>
+      <span class="benefit-card-toggle">+</span>
+    </div>
+    <div class="benefit-card-body">
+      <div class="benefit-card-body-inner">The patented honeycomb shape reaches deep between teeth to remove tartar and plaque that cause bad breath — not just masking odor, but eliminating the source.</div>
+    </div>
+  </div>
+
+  <div class="benefit-card-wrap" onclick="toggleBenefitCard(this)">
+    <div class="benefit-card">
+      <div class="benefit-card-left">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+            <path d="M12 4v2"/><path d="M12 18v2"/>
+            <path d="M4 12h2"/><path d="M18 12h2"/>
+            <path d="M6.3 6.3l1.4 1.4"/><path d="M16.3 16.3l1.4 1.4"/>
+            <path d="M6.3 17.7l1.4-1.4"/><path d="M16.3 7.7l1.4-1.4"/>
+          </svg>
+        </div>
+        <span class="benefit-card-label">supports the oral microbiome</span>
+      </div>
+      <span class="benefit-card-toggle">+</span>
+    </div>
+    <div class="benefit-card-body">
+      <div class="benefit-card-body-inner">Formulated with ingredients that help maintain a healthy balance of bacteria in your dog's mouth, supporting long-term oral wellness beyond just cleaning.</div>
+    </div>
+  </div>
+
+  <div class="benefit-card-wrap" onclick="toggleBenefitCard(this)">
+    <div class="benefit-card">
+      <div class="benefit-card-left">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 3h6l1 4h-8z"/>
+            <path d="M8 7c-1 3-2 7-1 11 .5 2 1.5 3 5 3s4.5-1 5-3c1-4 0-8-1-11"/>
+            <path d="M10 11h4"/>
+            <path d="M10 14h4"/>
+          </svg>
+        </div>
+        <span class="benefit-card-label">promotes healthy teeth & gums</span>
+      </div>
+      <span class="benefit-card-toggle">+</span>
+    </div>
+    <div class="benefit-card-body">
+      <div class="benefit-card-body-inner">VOHC-accepted for tartar control, the 360° flossing action with 256 scrubbing surfaces cleans to the gumline, helping prevent periodontal disease.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Ingredients Spotlight -->
+<div class="ingredients-section">
+  <div class="ingredients-eyebrow">YOUR DOG DESERVES THE BEST</div>
+  <div class="ingredients-headline">clean, effective, high<br>quality ingredients</div>
+
+  <div class="ingredient-carousel">
+    <div class="ingredient-track" id="ingredientTrack">
+      <!-- Slide 1 -->
+      <div class="ingredient-slide">
+        <img class="ingredient-img-placeholder" src="ingredient-chicken.png" alt="Real Chicken" style="background:none;">
+        <div class="ingredient-name">real chicken</div>
+        <div class="ingredient-desc">44% protein, #1 ingredient. Builds lean muscle and keeps dogs coming back for more.</div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="ingredient-slide">
+        <img class="ingredient-img-placeholder" src="ingredient-salmon-oil.png" alt="Salmon Oil" style="background:none;">
+        <div class="ingredient-name">salmon oil</div>
+        <div class="ingredient-desc">Omega-3 fatty acids for healthy skin, shiny coat, and reduced inflammation.</div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="ingredient-slide">
+        <img class="ingredient-img-placeholder" src="ingredient-glucosamine.png" alt="Glucosamine & Chondroitin" style="background:none;">
+        <div class="ingredient-name">glucosamine & chondroitin</div>
+        <div class="ingredient-desc">Joint support for dogs of all ages — especially important for seniors staying active.</div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="ingredient-slide">
+        <img class="ingredient-img-placeholder" src="ingredient-turmeric.jpg" alt="Turmeric" style="background:none;">
+        <div class="ingredient-name">turmeric</div>
+        <div class="ingredient-desc">Natural anti-inflammatory that supports gut health and immune function.</div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="ingredient-slide">
+        <img class="ingredient-img-placeholder" src="ingredient-honey.png" alt="Honey" style="background:none;">
+        <div class="ingredient-name">honey</div>
+        <div class="ingredient-desc">Natural antimicrobial properties that support oral health and make it irresistible.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredient-dots">
+    <button class="ingredient-dot active" onclick="goToSlide(0)"></button>
+    <button class="ingredient-dot" onclick="goToSlide(1)"></button>
+    <button class="ingredient-dot" onclick="goToSlide(2)"></button>
+    <button class="ingredient-dot" onclick="goToSlide(3)"></button>
+    <button class="ingredient-dot" onclick="goToSlide(4)"></button>
+  </div>
+</div>
+
+<!-- Us vs. Them Comparison -->
+<div class="comparison-section">
+  <div class="comparison-card">
+    <div class="comparison-eyebrow">US VS. THEM</div>
+    <div class="comparison-headline">we're a whole<br>different breed</div>
+
+    <div class="comp-table">
+      <div class="comp-header">
+        <div class="comp-header-spacer"></div>
+        <div class="comp-header-us">YUMMY<br>COMBS</div>
+        <div class="comp-header-them">others</div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">vet-formulated and developed</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">VOHC accepted for tartar control</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">no fillers or artificial flavors</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">44% protein, under 7% starch</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">patented anti-choking safety</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">complete & balanced nutrition</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-feature">doggy taste test approved</div>
+        <div class="comp-check">
+          <div class="comp-check-yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="comp-check"><div class="comp-check-no"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reviews Section -->
+<div class="reviews-section">
+  <div class="reviews-headline">dog parent approved</div>
+  <div class="reviews-subtitle">Read real (honest) reviews from pet parents just like you, here.</div>
+  <button class="write-review-btn">WRITE A REVIEW</button>
+
+  <div class="reviews-score">4.7</div>
+  <div class="reviews-stars">★★★★★</div>
+  <div class="reviews-count-label">Based on 2,400+ reviews</div>
+
+  <div class="reviews-sort-bar">
+    <span class="reviews-sort-count">2,400+ reviews</span>
+    <div class="reviews-sort-right">
+      <span class="reviews-sort-label">Sort</span>
+      <div class="reviews-sort-select">
+        <select>
+          <option>Most Recent</option>
+          <option>Highest Rated</option>
+          <option>Lowest Rated</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Review Cards -->
+<div class="reviews-list" id="reviewsList">
+
+  <!-- Review 1 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">T</div>
+      <div class="review-meta"><span class="review-name">Trina</span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">3 days ago</span></div>
+    <div class="review-title">5 Stars</div>
+    <div class="review-body">This has really helped with my dog's bad breath. I highly recommend this product.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 2 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">TD</div>
+      <div class="review-meta"><span class="review-name">Tanya D.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-attributes">
+      <div class="review-attr-row"><span class="review-attr-label">Dog Weight</span><span class="review-attr-value">26-50 lbs</span></div>
+      <div class="review-attr-row"><span class="review-attr-label">Dog's Age</span><span class="review-attr-value">10 years old</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">5 days ago</span></div>
+    <div class="review-title">Gut Well</div>
+    <div class="review-body">This stuff really works. For our dogs bad breath.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 3 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">MK</div>
+      <div class="review-meta"><span class="review-name">Michelle K.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">1 week ago</span></div>
+    <div class="review-title">Finally something that works</div>
+    <div class="review-body">My golden retriever had the WORST breath. We tried everything — water additives, dental sprays, other chews. After two weeks on Yummy Combs his breath is noticeably better and he absolutely loves them.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 3</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 4 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">JR</div>
+      <div class="review-meta"><span class="review-name">James R.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">1 week ago</span></div>
+    <div class="review-title">Vet noticed the difference</div>
+    <div class="review-body">Took my lab in for his annual checkup and the vet actually commented on how clean his teeth looked. Only thing we changed was adding Yummy Combs daily. Subscribing now.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 5</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 5 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">SL</div>
+      <div class="review-meta"><span class="review-name">Sarah L.</span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★<span style="opacity:.3">★</span></span><span class="review-date">2 weeks ago</span></div>
+    <div class="review-title">Great treat, picky eater approved</div>
+    <div class="review-body">My pomeranian is SO picky and she actually eats these without me having to trick her. The honeycomb shape seems to keep her chewing longer too. Taking one star off because shipping took a bit.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 1</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 6 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">BW</div>
+      <div class="review-meta"><span class="review-name">Brian W.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">2 weeks ago</span></div>
+    <div class="review-title">Better than Greenies by a mile</div>
+    <div class="review-body">We switched from Greenies after reading about the protein content. 44% protein vs 14% is a massive difference. My dog goes absolutely wild when he hears the bag open. Teeth are cleaner, breath is better. No brainer.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 8</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 1</div></div>
+    </div>
+  </div>
+
+  <!-- Review 7 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">LP</div>
+      <div class="review-meta"><span class="review-name">Linda P.</span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-attributes">
+      <div class="review-attr-row"><span class="review-attr-label">Dog Weight</span><span class="review-attr-value">51-100 lbs</span></div>
+      <div class="review-attr-row"><span class="review-attr-label">Dog's Age</span><span class="review-attr-value">7 years old</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">3 weeks ago</span></div>
+    <div class="review-title">Saved us a dental cleaning</div>
+    <div class="review-body">Our vet was recommending a $600 dental cleaning for our German Shepherd. We started Yummy Combs instead and at the 6-month checkup the vet said it wasn't needed anymore. The tartar reduction is real.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 12</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 8 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">CM</div>
+      <div class="review-meta"><span class="review-name">Carlos M.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">3 weeks ago</span></div>
+    <div class="review-title">Subscribe and forget</div>
+    <div class="review-body">Set up the monthly subscription and it just shows up. My bulldog gets one a day. His breath used to clear a room — now my wife actually lets him on the couch again.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 4</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 9 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">AH</div>
+      <div class="review-meta"><span class="review-name">Amanda H.</span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">1 month ago</span></div>
+    <div class="review-title">Two dogs, both obsessed</div>
+    <div class="review-body">I have a beagle and a corgi. Both of them sprint to the kitchen the second they hear me open the bag. The honeycomb shape keeps them chewing way longer than any other treat we've tried.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 2</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 10 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">DT</div>
+      <div class="review-meta"><span class="review-name">David T.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★<span style="opacity:.3">★</span></span><span class="review-date">1 month ago</span></div>
+    <div class="review-title">Solid product, wish it was cheaper</div>
+    <div class="review-body">The treats work great and my dog loves them. Only reason for 4 stars is the price point. But the subscribe and save helps. Teeth are definitely cleaner after a month of daily use.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 6</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 11 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">RP</div>
+      <div class="review-meta"><span class="review-name">Rachel P.</span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">1 month ago</span></div>
+    <div class="review-title">No more morning breath face</div>
+    <div class="review-body">My dachshund used to wake me up with the most horrible breath. It was genuinely difficult to be around. After about 3 weeks of daily Yummy Combs the difference is night and day. I can actually enjoy morning cuddles again.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 3</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 12 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">KN</div>
+      <div class="review-meta"><span class="review-name">Kevin N.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">1 month ago</span></div>
+    <div class="review-title">Safety sold me</div>
+    <div class="review-body">After my neighbor's dog choked on a different dental chew I was terrified of giving my dog any treats. The Slick'M anti-choking tech and the 4 safety patents made me feel comfortable trying these. My dog has been on them for 2 months now with zero issues.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 7</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 13 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">JG</div>
+      <div class="review-meta"><span class="review-name">Jessica G.</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">2 months ago</span></div>
+    <div class="review-title">Replaced brushing entirely</div>
+    <div class="review-body">I used to fight with my aussie every night trying to brush his teeth. Now I just give him a Yummy Comb and he's thrilled. His teeth look just as good if not better than when I was brushing. Total game changer for our routine.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 2</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 14 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">MS</div>
+      <div class="review-meta"><span class="review-name">Mike S.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-attributes">
+      <div class="review-attr-row"><span class="review-attr-label">Dog Weight</span><span class="review-attr-value">13-25 lbs</span></div>
+      <div class="review-attr-row"><span class="review-attr-label">Home State</span><span class="review-attr-value">Texas</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">2 months ago</span></div>
+    <div class="review-title">Worth every penny</div>
+    <div class="review-body">Was skeptical paying this much for dog treats but the results speak for themselves. My shih tzu's breath went from unbearable to neutral within a couple weeks. The fact that it's grain-free and high protein is a bonus.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 1</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 15 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">EC</div>
+      <div class="review-meta"><span class="review-name">Emily C.</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">2 months ago</span></div>
+    <div class="review-title">Senior dog approved</div>
+    <div class="review-body">My 13 year old lab mix has terrible teeth and the vet keeps pushing dental surgery. We started these as a last resort and after 6 weeks the tartar has visibly reduced. She loves the taste and has no trouble chewing them despite her age.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 9</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 16 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">NF</div>
+      <div class="review-meta"><span class="review-name">Natalie F.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
+    </div>
+    <div class="review-recommend"><div class="review-recommend-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M3 7l2.5-5c.3-.6 1-.8 1.5-.5.3.2.5.5.5.9V5h2.8c.4 0 .7.2.9.5.2.3.2.7.1 1L10 9.5c-.1.3-.4.5-.7.5H5c-.3 0-.5-.1-.7-.3L3 7z" fill="currentColor"/></svg></div> I recommend this product</div>
+    <div class="review-stars-row"><span class="review-stars">★★★★★</span><span class="review-date">3 months ago</span></div>
+    <div class="review-title">Bought for one dog, now buying for three</div>
+    <div class="review-body">Started with our older lab who had plaque issues. Worked so well that we put all three dogs on it. The XL size is perfect for our Great Dane — he chews on it for a solid 10 minutes which is impressive. All three have noticeably better breath.</div>
+    <div class="review-footer">
+      <div class="review-shop-badge">Verified by <strong>shop</strong></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 4</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+  <!-- Review 17 -->
+  <div class="review-card" data-review>
+    <div class="review-header">
+      <div class="review-avatar">TW</div>
+      <div class="review-meta"><span class="review-name">Tom W.</span></div>
+    </div>
+    <div class="review-stars-row"><span class="review-stars">★★★★<span style="opacity:.3">★</span></span><span class="review-date">3 months ago</span></div>
+    <div class="review-title">Good product, big dog goes through them fast</div>
+    <div class="review-body">Definite improvement in my rottweiler's breath and I can see less yellow on his back teeth. Only complaint is a 100+ lb dog crushes through the XL size in under 5 minutes. Wish they made an even bigger size. Still reordering though because the results are there.</div>
+    <div class="review-footer">
+      <div></div>
+      <div class="review-helpful">Was this helpful? <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 2</div> <div class="review-helpful-action"><svg viewBox="0 0 16 16" fill="none" style="transform:scaleY(-1)"><path d="M4.5 9.5l3-6c.4-.7 1.2-1 1.8-.6.4.2.7.7.7 1.1V7h3.5c.5 0 .9.3 1.1.7.2.4.2.8.1 1.2l-1.5 4c-.2.4-.5.6-.9.6H6.5c-.3 0-.6-.1-.9-.4L4.5 9.5z" stroke="currentColor" stroke-width="1.2"/></svg> 0</div></div>
+    </div>
+  </div>
+
+</div>
+
+<button class="show-more-btn" id="showMoreBtn" onclick="showMoreReviews()">SHOW MORE REVIEWS</button>
+
+<!-- FAQ Section -->
+<div class="faq-section">
+  <div class="faq-eyebrow">YUMMY COMBS</div>
+  <div class="faq-headline">frequently<br>asked questions</div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">what does Yummy Combs do and how does it work?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Yummy Combs is a daily dental treat with a patented honeycomb shape that provides 360° flossing action with up to 256 scrubbing surfaces. As your dog chews, the shape cleans between teeth and down to the gumline, removing tartar and plaque that cause bad breath and gum disease.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">what makes Yummy Combs different from other dental treats on the market?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Yummy Combs is the only dental treat with a VOHC Seal of Acceptance for Tartar Control, 44% protein (vs. 14% industry average), under 7% starch (vs. 40% average), 4 patented anti-choking safety features, and a complete & balanced nutritional formula with 12 wellness ingredients. No other treat combines all of these.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">how much Yummy Combs do I give my dog?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">One treat per day. Choose the correct size for your dog's weight: X-Small (5.5-12 lbs), Small (13-25 lbs), Medium (26-50 lbs), Large (51-100 lbs), X-Large (100+ lbs). Always size up for safety — never size down.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">is Yummy Combs safe for my dog?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Yes. Yummy Combs features 4 patented safety concepts including Slick'M technology that makes the treat very slippery when it contacts saliva, allowing pieces to pass easily if swallowed. The wide design deters gulping and encourages longer chewing. Formulated by a board-certified vet nutritionist and tested by a board-certified vet dentist.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">how long does it take to see results?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Most dog owners notice fresher breath within 2-3 weeks of daily use. Visible tartar reduction typically becomes noticeable after 4-6 weeks. Consistent daily use delivers the best results — that's why our subscribe & save option ensures your dog never misses a day.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">what are the ingredients in Yummy Combs?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Yummy Combs contains 44% superior quality protein with all 22 required amino acids, plus 12 wellness ingredients supporting heart, joint, gut, skin & coat health. The formula is grain-free, non-GMO, gluten-free, and contains no artificial colors, flavors, or preservatives. Complete and balanced with all required vitamins and minerals.</div>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="faq-question-text">can I cancel my subscription anytime?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">Absolutely. You can skip, pause, or cancel your subscription anytime from your account. No commitments, no penalties, no pressure. Simply log in and select "Cancel" under "Your Subscription."</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-socials">
+    <a href="#">
+      <svg viewBox="0 0 28 28" fill="currentColor"><path d="M11.2 18.9V14h-2.1v-3.2h2.1V8.5c0-2.1 1.2-3.2 3.1-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.3v1.6h2.3l-.4 3.2h-1.9v9h4.4c1 0 1.8-.8 1.8-1.8V5.8c0-1-.8-1.8-1.8-1.8H5.8C4.8 4 4 4.8 4 5.8v16.4c0 1 .8 1.8 1.8 1.8h5.4z"/></svg>
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 28 28" fill="currentColor"><path d="M14 7.6c-3.5 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4 6.4-2.9 6.4-6.4-2.9-6.4-6.4-6.4zm0 10.5c-2.3 0-4.1-1.9-4.1-4.1 0-2.3 1.9-4.1 4.1-4.1 2.3 0 4.1 1.9 4.1 4.1 0 2.3-1.8 4.1-4.1 4.1zm6.6-10.8c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zM22.4 4H5.6C4.7 4 4 4.7 4 5.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V5.6c0-.9-.7-1.6-1.6-1.6zm-1.1 14.8c-.1 2-1.2 3.1-3.2 3.2-1.3.1-5 .1-6.2 0-2-.1-3.1-1.2-3.2-3.2-.1-1.3-.1-5 0-6.2.1-2 1.2-3.1 3.2-3.2 1.3-.1 5-.1 6.2 0 2 .1 3.1 1.2 3.2 3.2.1 1.2.1 4.9 0 6.2z"/></svg>
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 28 28" fill="currentColor"><path d="M23.5 10.5c-.2-1.6-1-2.8-2.5-3.2C19.4 7 14 7 14 7s-5.4 0-7 .3c-1.5.4-2.3 1.6-2.5 3.2-.2 1.6-.2 3.5-.2 3.5s0 1.9.2 3.5c.2 1.6 1 2.8 2.5 3.2 1.6.3 7 .3 7 .3s5.4 0 7-.3c1.5-.4 2.3-1.6 2.5-3.2.2-1.6.2-3.5.2-3.5s0-1.9-.2-3.5zM11.5 17V11l5.5 3-5.5 3z"/></svg>
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 28 28" fill="currentColor"><path d="M18.8 8.5c-.7-.8-1.1-1.8-1.1-2.9h-2.8v12.7c0 1.7-1.3 3-3 3-1 0-1.8-.5-2.3-1.2-.6-.7-.8-1.7-.5-2.6.3-.9 1.1-1.6 2.1-1.8.3-.1.6-.1.9 0v-2.9c-.3 0-.6-.1-.9-.1-2 0-3.9 1-4.9 2.7-1 1.7-1.1 3.7-.1 5.5.9 1.8 2.8 2.9 4.8 2.9 3 0 5.5-2.5 5.5-5.5V12c1.2.8 2.5 1.3 4 1.3v-2.8c-1-.1-1.9-.7-2.7-1.5z"/></svg>
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 28 28" fill="currentColor"><path d="M14 4C8.5 4 4 8.5 4 14s4.5 10 10 10 10-4.5 10-10S19.5 4 14 4zm4.6 11.3l-1.8.8c-.6.3-1.1.5-1.5.8-.4.3-.7.5-1 .8-.3.3-.5.5-.8.8l-.8 1c-.3.4-.6.7-.8.9-.2.2-.4.3-.6.4-.2.1-.5.1-.8.1-.5 0-1-.2-1.4-.5-.4-.3-.6-.8-.6-1.3 0-.4.1-.7.3-1 .2-.3.5-.5.8-.6.3-.2.7-.3 1-.4.4-.1.8-.2 1.2-.4.4-.2.8-.3 1.1-.5.3-.2.6-.4.9-.7.3-.3.5-.6.6-1 .2-.4.2-.8.2-1.4 0-.7-.2-1.3-.5-1.8-.3-.5-.8-.8-1.4-.8-.4 0-.8.1-1.1.4-.3.3-.5.6-.6 1-.1.4-.2.8-.2 1.2 0 .4.1.8.2 1.1-.5.2-1 .3-1.5.3-.4 0-.7-.1-1-.4-.3-.3-.4-.6-.4-1 0-.6.2-1.2.5-1.7.3-.5.8-1 1.3-1.3.5-.3 1.1-.6 1.8-.8.7-.2 1.3-.3 2-.3.8 0 1.5.1 2.2.4.6.3 1.2.6 1.6 1.1.4.5.7 1 .9 1.6.2.6.3 1.2.3 1.9 0 .6-.1 1.2-.3 1.6z"/></svg>
+    </a>
+  </div>
+
+  <div class="footer-copyright">© 2026 Pet's Best Life</div>
+
+  <div class="footer-links">
+    <a href="#">Terms of Service</a>
+    <div class="footer-links-divider"></div>
+    <a href="#">Privacy Policy</a>
+  </div>
+
+  <div class="footer-tagline">SHAPE MAKES THE DIFFERENCE™</div>
+
+  <div class="footer-brand"><img src="yummy-combs-footer-logo.png" alt="Yummy Combs"></div>
+</div>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bottom" id="stickyBar">
+  <span class="sticky-product-name">Yummy Combs</span>
+  <button class="sticky-cta">SHOP NOW</button>
+</div>
+
+<div class="page-bottom-spacer"></div>
+
+<script>
+  // Product image carousel
+  let prodSlide = 0;
+  const prodTotal = 6;
+  const prodTrack = document.getElementById('productTrack');
+  const prodDots = document.querySelectorAll('.product-carousel-dot');
+
+  function goToProductSlide(n) {
+    prodSlide = n;
+    prodTrack.style.transform = `translateX(-${n * 100}%)`;
+    prodDots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+
+  // Touch swipe for product carousel
+  let prodTouchX = 0;
+  const prodCarousel = document.getElementById('productCarousel');
+  if (prodCarousel) {
+    prodCarousel.addEventListener('touchstart', e => {
+      prodTouchX = e.touches[0].clientX;
+    }, { passive: true });
+    prodCarousel.addEventListener('touchend', e => {
+      const diff = prodTouchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0 && prodSlide < prodTotal - 1) goToProductSlide(prodSlide + 1);
+        else if (diff < 0 && prodSlide > 0) goToProductSlide(prodSlide - 1);
+      }
+    }, { passive: true });
+  }
+
+  let qty = 1;
+  document.getElementById('qtyMinus').addEventListener('click', () => {
+    if (qty > 1) { qty--; document.getElementById('qtyVal').textContent = qty; }
+  });
+  document.getElementById('qtyPlus').addEventListener('click', () => {
+    qty++; document.getElementById('qtyVal').textContent = qty;
+  });
+
+  function selectOption(type) {
+    // Legacy - no longer used
+  }
+
+  // Purchase type toggle (One Time / Subscribe)
+  let purchaseType = 'sub';
+  let selectedBundle = 1; // default to Buy 2 Get 1
+
+  function setPurchaseType(type) {
+    purchaseType = type;
+    document.getElementById('toggleOneTime').classList.toggle('active', type === 'onetime');
+    document.getElementById('toggleSub').classList.toggle('active', type === 'sub');
+    document.getElementById('subNote').style.display = type === 'sub' ? 'block' : 'none';
+    updatePrices();
+  }
+
+  function setDogSize(btn) {
+    document.querySelectorAll('.dog-size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function selectBundle(card, index) {
+    selectedBundle = index;
+    document.querySelectorAll('.bundle-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    updatePrices();
+  }
+
+  function updatePrices() {
+    const cards = document.querySelectorAll('.bundle-card');
+    const atcBtn = document.getElementById('atcBtn');
+
+    cards.forEach((card, i) => {
+      const onetimePrice = card.getAttribute('data-onetime');
+      const subPrice = card.getAttribute('data-sub');
+      const strikePrice = card.getAttribute('data-strike');
+      const priceEl = document.getElementById('price' + i);
+
+      if (purchaseType === 'sub' && subPrice) {
+        if (strikePrice) {
+          priceEl.innerHTML = '<div class="bundle-price-strike">$' + strikePrice + '</div><div class="bundle-price-current">$' + subPrice + '</div>';
+        } else {
+          priceEl.innerHTML = '<div class="bundle-price-current">$' + subPrice + '</div>';
+        }
+      } else {
+        if (strikePrice) {
+          priceEl.innerHTML = '<div class="bundle-price-strike">$' + strikePrice + '</div><div class="bundle-price-current">$' + onetimePrice + '</div>';
+        } else {
+          priceEl.innerHTML = '<div class="bundle-price-single">$' + onetimePrice + '</div>';
+        }
+      }
+    });
+
+    // Update ATC button
+    const activeCard = document.querySelector('.bundle-card.active');
+    const price = purchaseType === 'sub' 
+      ? (activeCard.getAttribute('data-sub') || activeCard.getAttribute('data-onetime'))
+      : activeCard.getAttribute('data-onetime');
+    atcBtn.textContent = 'ADD TO CART - $' + price;
+  }
+
+  function toggleUpsell(card) {
+    const checkbox = document.getElementById('upsellCheck');
+    checkbox.classList.toggle('checked');
+  }
+
+  // Initialize prices
+  updatePrices();
+
+  document.querySelectorAll('.accordion-item.open .accordion-body').forEach(el => {
+    el.style.maxHeight = el.scrollHeight + 'px';
+  });
+
+  function toggleAccordion(header) {
+    const item = header.parentElement;
+    const body = item.querySelector('.accordion-body');
+    const icon = item.querySelector('.accordion-icon');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.accordion-body').style.maxHeight = '0';
+      i.querySelector('.accordion-icon').textContent = '+';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      icon.textContent = '−';
+    }
+  }
+
+  // Benefit cards toggle
+  function toggleBenefitCard(wrap) {
+    const isOpen = wrap.classList.contains('open');
+    document.querySelectorAll('.benefit-card-wrap').forEach(w => {
+      w.classList.remove('open');
+      w.querySelector('.benefit-card-toggle').textContent = '+';
+    });
+    if (!isOpen) {
+      wrap.classList.add('open');
+      wrap.querySelector('.benefit-card-toggle').textContent = '−';
+    }
+  }
+
+  // Sticky bottom bar — show after scrolling past ATC
+  const stickyBar = document.getElementById('stickyBar');
+  const atcSection = document.querySelector('.atc-section');
+  if (atcSection && stickyBar) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    observer.observe(atcSection);
+  }
+
+  // Ingredient carousel
+  let currentSlide = 0;
+  const totalSlides = 5;
+  const track = document.getElementById('ingredientTrack');
+  const dots = document.querySelectorAll('.ingredient-dot');
+
+  function goToSlide(n) {
+    currentSlide = n;
+    track.style.transform = `translateX(-${n * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+
+  // Touch swipe
+  let touchStartX = 0;
+  const carousel = document.querySelector('.ingredient-carousel');
+  if (carousel) {
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0 && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+        else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+      }
+    }, { passive: true });
+  }
+
+  // Show more reviews - show 3 at a time
+  const reviewCards = document.querySelectorAll('.reviews-list .review-card');
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  let visibleCount = 0;
+  const batchSize = 3;
+
+  function showMoreReviews() {
+    const end = Math.min(visibleCount + batchSize, reviewCards.length);
+    for (let i = visibleCount; i < end; i++) {
+      reviewCards[i].classList.add('visible');
+    }
+    visibleCount = end;
+    if (visibleCount >= reviewCards.length) {
+      showMoreBtn.classList.add('hidden');
+    }
+  }
+
+  // Show first 3 on load
+  showMoreReviews();
+
+  // FAQ toggle
+  function toggleFaq(item) {
+    const answer = item.querySelector('.faq-answer');
+    const toggle = item.querySelector('.faq-toggle');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = '0';
+      i.querySelector('.faq-toggle').textContent = '+';
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      toggle.textContent = '−';
+    }
+  }
+</script>
+
+</body>
+</html>
