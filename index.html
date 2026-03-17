@@ -3002,8 +3002,8 @@
     prodCarousel.addEventListener('touchend', e => {
       const diff = prodTouchX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 40) {
-        if (diff > 0 && prodSlide < prodTotal - 1) goToProductSlide(prodSlide + 1);
-        else if (diff < 0 && prodSlide > 0) goToProductSlide(prodSlide - 1);
+        if (diff > 0) goToProductSlide(prodSlide < prodTotal - 1 ? prodSlide + 1 : 0);
+        else if (diff < 0) goToProductSlide(prodSlide > 0 ? prodSlide - 1 : prodTotal - 1);
       }
     }, { passive: true });
   }
