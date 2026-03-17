@@ -2138,17 +2138,7 @@
 <div class="top-banner">bundle + save</div>
 
 <div class="header">
-  <div class="header-menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  </div>
   <div class="header-logo"><img src="replace.png" alt="Yummy Combs"></div>
-  <div class="header-cart">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>
-    </svg>
-  </div>
 </div>
 
 <div class="promo-bar">
@@ -2589,10 +2579,10 @@
     <div class="reviews-sort-right">
       <span class="reviews-sort-label">Sort</span>
       <div class="reviews-sort-select">
-        <select>
-          <option>Most Recent</option>
-          <option>Highest Rated</option>
-          <option>Lowest Rated</option>
+        <select id="reviewSort" onchange="sortReviews(this.value)">
+          <option value="recent">Most Recent</option>
+          <option value="highest">Highest Rated</option>
+          <option value="lowest">Lowest Rated</option>
         </select>
       </div>
     </div>
@@ -3218,6 +3208,44 @@
 
   // Show first 3 on load
   showMoreReviews();
+
+  // Sort reviews
+  function sortReviews(sortBy) {
+    const list = document.getElementById('reviewsList');
+    const cards = Array.from(list.querySelectorAll('.review-card'));
+
+    function getStars(card) {
+      const starsEl = card.querySelector('.review-stars');
+      return (starsEl.textContent.match(/★/g) || []).length;
+    }
+
+    function getDays(card) {
+      const dateEl = card.querySelector('.review-date');
+      const text = dateEl.textContent.trim();
+      const num = parseInt(text) || 1;
+      if (text.includes('day')) return num;
+      if (text.includes('week')) return num * 7;
+      if (text.includes('month')) return num * 30;
+      return num;
+    }
+
+    if (sortBy === 'highest') {
+      cards.sort((a, b) => getStars(b) - getStars(a) || getDays(a) - getDays(b));
+    } else if (sortBy === 'lowest') {
+      cards.sort((a, b) => getStars(a) - getStars(b) || getDays(a) - getDays(b));
+    } else {
+      cards.sort((a, b) => getDays(a) - getDays(b));
+    }
+
+    cards.forEach(card => {
+      card.classList.remove('visible');
+      list.appendChild(card);
+    });
+
+    visibleCount = 0;
+    showMoreBtn.classList.remove('hidden');
+    showMoreReviews();
+  }
 
   // FAQ toggle
   function toggleFaq(item) {
