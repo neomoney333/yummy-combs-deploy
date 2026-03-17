@@ -33,7 +33,31 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
+
+  /* Haptic tap feedback for all interactive elements */
+  button, .bundle-card, .dog-size-btn, .accordion-header, .benefit-card, .faq-question, .purchase-toggle-btn, .ugc-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  button:active, .bundle-card:active, .dog-size-btn:active, .benefit-card:active, .faq-question:active, .purchase-toggle-btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+  }
+
+  /* GPU acceleration for animated elements */
+  .product-carousel-track, .ingredient-slide, .accordion-body, .benefit-card-body, .faq-answer, .sticky-bottom {
+    will-change: transform, opacity, max-height;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Smooth scrolling */
+  html { scroll-behavior: smooth; }
+
+  /* Preload font display */
+  img { content-visibility: auto; }
 
   /* === TOP BANNER === */
   .top-banner {
@@ -678,7 +702,8 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .atc-btn:active { background: #d4961e; }
+  .atc-btn:active { background: #d4961e; transform: scale(0.97); }
+  .atc-btn { transition: background 0.15s, transform 0.1s; }
 
   .shipping-note {
     display: flex;
@@ -1049,10 +1074,11 @@
     background: var(--white);
     border-top: 1px solid #e6dcea;
     padding: 8px 16px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 8px));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 100;
+    z-index: 9999;
     display: none;
   }
 
@@ -1084,7 +1110,9 @@
 
   .sticky-cta:active {
     background: #d4961e;
+    transform: scale(0.97);
   }
+  .sticky-cta { transition: background 0.15s, transform 0.1s; }
 
   /* Extra bottom padding for sticky bar */
   .page-bottom-spacer {
@@ -2161,7 +2189,7 @@
 <div class="top-banner">bundle + save</div>
 
 <div class="header">
-  <div class="header-logo"><img src="hf_20260317_185109_c0274dad-8294-440f-b4ea-73509a85e73e.png" alt="Yummy Combs"></div>
+  <div class="header-logo"><img src="https://yummy-combs-deploy.vercel.app/hf_20260317_185109_c0274dad-8294-440f-b4ea-73509a85e73e.png" alt="Yummy Combs"></div>
 </div>
 
 <div class="promo-bar">
@@ -2211,12 +2239,12 @@
 
 <div class="product-right-col">
 <div class="product-info" id="productInfo">
+  <h1 class="product-title">Better Than Brushing<span style="font-size:0.5em; vertical-align:super;">™</span></h1>
   <div class="badges">
     <span class="badge badge-gold">VOHC accepted!</span>
     <span class="badge badge-gold">vet recommended</span>
     <span class="badge badge-gold">dogs beg for it</span>
   </div>
-  <h1 class="product-title">Better Than Brushing<span style="font-size:0.5em; vertical-align:super;">™</span></h1>
   <div class="rating">
     <div class="stars">★★★★<span class="star-half">★</span></div>
     <span class="rating-text">4.7 (2,400+ Reviews)</span>
@@ -2243,7 +2271,7 @@
 
   <!-- Bundle Options -->
   <div class="bundle-options" id="bundleOptions">
-    <div class="bundle-card" onclick="selectBundle(this, 0)" data-onetime="49.98" data-sub="45.00">
+    <div class="bundle-card" onclick="selectBundle(this, 0)" data-onetime="49.98" data-sub="44.98" data-strike="49.98">
       <div class="bundle-card-top">
         <div class="bundle-card-left">
           <div class="bundle-radio"><div class="bundle-radio-inner"></div></div>
@@ -2257,7 +2285,7 @@
       </div>
     </div>
 
-    <div class="bundle-card active" onclick="selectBundle(this, 1)" data-onetime="99.96" data-sub="89.97" data-strike="149.94">
+    <div class="bundle-card active" onclick="selectBundle(this, 1)" data-onetime="99.96" data-sub="89.96" data-strike="149.94">
       <div class="bundle-card-badge">Most Popular</div>
       <div class="bundle-card-top">
         <div class="bundle-card-left">
@@ -2332,15 +2360,15 @@
 </div>
 
 <div class="ugc-row">
-  <div class="ugc-card" style="background: url('@thecarolinacanines.png') center center / cover no-repeat;">
+  <div class="ugc-card" style="background: url('https://yummy-combs-deploy.vercel.app/@thecarolinacanines.png') center center / cover no-repeat;">
     <div class="ugc-overlay"></div>
     <div class="ugc-caption">my vet said his teeth look great</div>
   </div>
-  <div class="ugc-card" style="background: url('@bartandbrucesbiglife.png') center center / cover no-repeat;">
+  <div class="ugc-card" style="background: url('https://yummy-combs-deploy.vercel.app/@bartandbrucesbiglife.png') center center / cover no-repeat;">
     <div class="ugc-overlay"></div>
     <div class="ugc-caption">Greenies didn't work. This did.</div>
   </div>
-  <div class="ugc-card" style="background: url('@lifeofavita.jpg') center bottom / 105% auto no-repeat;">
+  <div class="ugc-card" style="background: url('https://yummy-combs-deploy.vercel.app/@lifeofavita.jpg') center bottom / 105% auto no-repeat;">
     <div class="ugc-overlay"></div>
     <div class="ugc-caption">he goes CRAZY for these treats...</div>
   </div>
@@ -2387,7 +2415,7 @@
 
 <!-- Hero Image -->
 <div class="hero-image-section" style="width:100%; overflow:hidden; margin-bottom:0;">
-  <img src="https://yummy-combs-deploy.vercel.app/Untitled%20design%20(14).png" alt="Healthy Smiles, Every Day - Yummy Combs benefits" style="width:100%; display:block;">
+  <img src="https://yummy-combs-deploy.vercel.app/Untitled%20design%20(14).png" alt="Healthy Smiles, Every Day - Yummy Combs benefits" style="width:100%; display:block;" loading="lazy">
 </div>
 
 <!-- How It Works / Benefits -->
@@ -2469,25 +2497,25 @@
     <div class="ingredient-track" id="ingredientTrack">
       <!-- Slide 1 -->
       <div class="ingredient-slide">
-        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-chicken.png" alt="Real Chicken" style="background:none;">
+        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-chicken.png" alt="Real Chicken" style="background:none;" loading="lazy">
         <div class="ingredient-name">real chicken</div>
         <div class="ingredient-desc">44% protein, #1 ingredient. Builds lean muscle and keeps dogs coming back for more.</div>
       </div>
       <!-- Slide 2 -->
       <div class="ingredient-slide">
-        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-salmon-oil.png" alt="Salmon Oil" style="background:none;">
+        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-salmon-oil.png" alt="Salmon Oil" style="background:none;" loading="lazy">
         <div class="ingredient-name">salmon oil</div>
         <div class="ingredient-desc">Omega-3 fatty acids for healthy skin, shiny coat, and reduced inflammation.</div>
       </div>
       <!-- Slide 3 -->
       <div class="ingredient-slide">
-        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-turmeric.jpg" alt="Turmeric" style="background:none;">
+        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-turmeric.jpg" alt="Turmeric" style="background:none;" loading="lazy">
         <div class="ingredient-name">turmeric</div>
         <div class="ingredient-desc">Natural anti-inflammatory that supports gut health and immune function.</div>
       </div>
       <!-- Slide 5 -->
       <div class="ingredient-slide">
-        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-honey.png" alt="Honey" style="background:none;">
+        <img class="ingredient-img-placeholder" src="https://yummy-combs-deploy.vercel.app/ingredient-honey.png" alt="Honey" style="background:none;" loading="lazy">
         <div class="ingredient-name">honey</div>
         <div class="ingredient-desc">Natural antimicrobial properties that support oral health and make it irresistible.</div>
       </div>
@@ -2595,7 +2623,7 @@
 <div class="reviews-list" id="reviewsList">
 
   <!-- Review 1 -->
-  <div class="review-card" data-review>
+  <div class="review-card visible" data-review>
     <div class="review-header">
       <div class="review-avatar">T</div>
       <div class="review-meta"><span class="review-name">Trina</span></div>
@@ -2611,7 +2639,7 @@
   </div>
 
   <!-- Review 2 -->
-  <div class="review-card" data-review>
+  <div class="review-card visible" data-review>
     <div class="review-header">
       <div class="review-avatar">TD</div>
       <div class="review-meta"><span class="review-name">Tanya D.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
@@ -2631,7 +2659,7 @@
   </div>
 
   <!-- Review 3 -->
-  <div class="review-card" data-review>
+  <div class="review-card visible" data-review>
     <div class="review-header">
       <div class="review-avatar">MK</div>
       <div class="review-meta"><span class="review-name">Michelle K.</span><span class="review-verified">Verified Buyer <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></div>
@@ -2968,49 +2996,29 @@
 <!-- Sticky Bottom Bar -->
 <div class="sticky-bottom" id="stickyBar">
   <span class="sticky-product-name">#1 Dental Dog Treat</span>
-  <button class="sticky-cta" onclick="document.getElementById('productInfo').scrollIntoView({behavior:'smooth'})">SHOP NOW</button>
+  <button class="sticky-cta" onclick="var el=document.getElementById('productInfo');if(el){window.scrollTo({top:el.offsetTop-60,behavior:'smooth'})}">SHOP NOW</button>
 </div>
 
 <div class="page-bottom-spacer"></div>
 
 <script>
-  // Product image carousel
-  let prodSlide = 0;
-  const prodTotal = 5;
-  const prodTrack = document.getElementById('productTrack');
-  const prodDots = document.querySelectorAll('.product-carousel-dot');
+  // === GLOBAL VARIABLES ===
+  var prodSlide = 0;
+  var prodTotal = 5;
+  var purchaseType = 'sub';
+  var selectedBundle = 1;
+  var qty = 1;
+  var currentSlide = 0;
+  var visibleCount = 0;
+  var batchSize = 3;
+  var prodTrack, prodDots, slides, totalSlides, reviewCards, showMoreBtn;
 
+  // === GLOBAL FUNCTIONS (called by onclick) ===
   function goToProductSlide(n) {
     prodSlide = n;
-    prodTrack.style.transform = `translateX(-${n * 100}%)`;
-    prodDots.forEach((d, i) => d.classList.toggle('active', i === n));
+    if (prodTrack) prodTrack.style.transform = 'translateX(-' + (n * 100) + '%)';
+    if (prodDots) prodDots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
   }
-
-  // Touch swipe for product carousel
-  let prodTouchX = 0;
-  const prodCarousel = document.getElementById('productCarousel');
-  if (prodCarousel) {
-    prodCarousel.addEventListener('touchstart', e => {
-      prodTouchX = e.touches[0].clientX;
-    }, { passive: true });
-    prodCarousel.addEventListener('touchend', e => {
-      const diff = prodTouchX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) goToProductSlide(prodSlide < prodTotal - 1 ? prodSlide + 1 : 0);
-        else if (diff < 0) goToProductSlide(prodSlide > 0 ? prodSlide - 1 : prodTotal - 1);
-      }
-    }, { passive: true });
-  }
-
-  let qty = 1;
-
-  function selectOption(type) {
-    // Legacy - no longer used
-  }
-
-  // Purchase type toggle (One Time / Subscribe)
-  let purchaseType = 'sub';
-  let selectedBundle = 1; // default to Buy 2 Get 1
 
   function setPurchaseType(type) {
     purchaseType = type;
@@ -3021,27 +3029,25 @@
   }
 
   function setDogSize(btn) {
-    document.querySelectorAll('.dog-size-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.dog-size-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
   }
 
   function selectBundle(card, index) {
     selectedBundle = index;
-    document.querySelectorAll('.bundle-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.bundle-card').forEach(function(c) { c.classList.remove('active'); });
     card.classList.add('active');
     updatePrices();
   }
 
   function updatePrices() {
-    const cards = document.querySelectorAll('.bundle-card');
-    const atcBtn = document.getElementById('atcBtn');
-
-    cards.forEach((card, i) => {
-      const onetimePrice = card.getAttribute('data-onetime');
-      const subPrice = card.getAttribute('data-sub');
-      const strikePrice = card.getAttribute('data-strike');
-      const priceEl = document.getElementById('price' + i);
-
+    var cards = document.querySelectorAll('.bundle-card');
+    var atcBtn = document.getElementById('atcBtn');
+    cards.forEach(function(card, i) {
+      var onetimePrice = card.getAttribute('data-onetime');
+      var subPrice = card.getAttribute('data-sub');
+      var strikePrice = card.getAttribute('data-strike');
+      var priceEl = document.getElementById('price' + i);
       if (purchaseType === 'sub' && subPrice) {
         if (strikePrice) {
           priceEl.innerHTML = '<div class="bundle-price-strike">$' + strikePrice + '</div><div class="bundle-price-current">$' + subPrice + '</div>';
@@ -3056,33 +3062,23 @@
         }
       }
     });
-
-    // Update ATC button
-    const activeCard = document.querySelector('.bundle-card.active');
-    const price = purchaseType === 'sub' 
+    var activeCard = document.querySelector('.bundle-card.active');
+    var price = purchaseType === 'sub'
       ? (activeCard.getAttribute('data-sub') || activeCard.getAttribute('data-onetime'))
       : activeCard.getAttribute('data-onetime');
     atcBtn.textContent = 'ADD TO CART - $' + price;
   }
 
   function toggleUpsell(card) {
-    const checkbox = document.getElementById('upsellCheck');
-    checkbox.classList.toggle('checked');
+    document.getElementById('upsellCheck').classList.toggle('checked');
   }
 
-  // Initialize prices
-  updatePrices();
-
-  document.querySelectorAll('.accordion-item.open .accordion-body').forEach(el => {
-    el.style.maxHeight = (el.scrollHeight + 20) + 'px';
-  });
-
   function toggleAccordion(header) {
-    const item = header.parentElement;
-    const body = item.querySelector('.accordion-body');
-    const icon = item.querySelector('.accordion-icon');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.accordion-item').forEach(i => {
+    var item = header.parentElement;
+    var body = item.querySelector('.accordion-body');
+    var icon = item.querySelector('.accordion-icon');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(function(i) {
       i.classList.remove('open');
       i.querySelector('.accordion-body').style.maxHeight = '0';
       i.querySelector('.accordion-icon').textContent = '+';
@@ -3090,56 +3086,34 @@
     if (!isOpen) {
       item.classList.add('open');
       body.style.maxHeight = (body.scrollHeight + 20) + 'px';
-      icon.textContent = '−';
+      icon.textContent = '\u2212';
     }
   }
 
-  // Benefit cards toggle
   function toggleBenefitCard(wrap) {
-    const isOpen = wrap.classList.contains('open');
-    document.querySelectorAll('.benefit-card-wrap').forEach(w => {
+    var isOpen = wrap.classList.contains('open');
+    document.querySelectorAll('.benefit-card-wrap').forEach(function(w) {
       w.classList.remove('open');
       w.querySelector('.benefit-card-toggle').textContent = '+';
     });
     if (!isOpen) {
       wrap.classList.add('open');
-      wrap.querySelector('.benefit-card-toggle').textContent = '−';
+      wrap.querySelector('.benefit-card-toggle').textContent = '\u2212';
     }
   }
 
-  // Sticky bottom bar — show after scrolling past ATC
-  const stickyBar = document.getElementById('stickyBar');
-  const atcSection = document.querySelector('.atc-section');
-  if (atcSection && stickyBar) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          stickyBar.classList.add('visible');
-        } else {
-          stickyBar.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0 });
-    observer.observe(atcSection);
-  }
-
-  // Infinite ingredient carousel
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.ingredient-slide');
-  const totalSlides = slides.length;
   function mod(n, m) { return ((n % m) + m) % m; }
 
   function goToSlide(n) {
+    if (!slides || !slides.length) return;
     currentSlide = mod(n, totalSlides);
-    const prev = mod(currentSlide - 1, totalSlides);
-    const next = mod(currentSlide + 1, totalSlides);
-
-    slides.forEach((s) => {
+    var prev = mod(currentSlide - 1, totalSlides);
+    var next = mod(currentSlide + 1, totalSlides);
+    slides.forEach(function(s) {
       s.classList.remove('slide-center', 'slide-left', 'slide-right');
       s.style.opacity = '0';
       s.style.pointerEvents = 'none';
     });
-
     slides[prev].classList.add('slide-left');
     slides[prev].style.opacity = '1';
     slides[currentSlide].classList.add('slide-center');
@@ -3149,100 +3123,126 @@
     slides[next].style.opacity = '1';
   }
 
-  goToSlide(0);
-
-  // Touch swipe
-  let touchStartX = 0;
-  const carousel = document.querySelector('.ingredient-carousel');
-  if (carousel) {
-    carousel.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    carousel.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) goToSlide(currentSlide + 1);
-        else goToSlide(currentSlide - 1);
-      }
-    }, { passive: true });
-  }
-
-  // Show more reviews - show 3 at a time
-  const reviewCards = document.querySelectorAll('.reviews-list .review-card');
-  const showMoreBtn = document.getElementById('showMoreBtn');
-  let visibleCount = 0;
-  const batchSize = 3;
-
   function showMoreReviews() {
-    const end = Math.min(visibleCount + batchSize, reviewCards.length);
-    for (let i = visibleCount; i < end; i++) {
+    if (!reviewCards) return;
+    var end = Math.min(visibleCount + batchSize, reviewCards.length);
+    for (var i = visibleCount; i < end; i++) {
       reviewCards[i].classList.add('visible');
     }
     visibleCount = end;
-    if (visibleCount >= reviewCards.length) {
+    if (visibleCount >= reviewCards.length && showMoreBtn) {
       showMoreBtn.classList.add('hidden');
     }
   }
 
-  // Show first 3 on load
-  showMoreReviews();
-
-  // Sort reviews
   function sortReviews(sortBy) {
-    const list = document.getElementById('reviewsList');
-    const cards = Array.from(list.querySelectorAll('.review-card'));
-
+    var list = document.getElementById('reviewsList');
+    var cards = Array.from(list.querySelectorAll('.review-card'));
     function getStars(card) {
-      const starsEl = card.querySelector('.review-stars');
-      return (starsEl.textContent.match(/★/g) || []).length;
+      var starsEl = card.querySelector('.review-stars');
+      return (starsEl.textContent.match(/\u2605/g) || []).length;
     }
-
     function getDays(card) {
-      const dateEl = card.querySelector('.review-date');
-      const text = dateEl.textContent.trim();
-      const num = parseInt(text) || 1;
-      if (text.includes('day')) return num;
-      if (text.includes('week')) return num * 7;
-      if (text.includes('month')) return num * 30;
+      var dateEl = card.querySelector('.review-date');
+      var text = dateEl.textContent.trim();
+      var num = parseInt(text) || 1;
+      if (text.indexOf('day') > -1) return num;
+      if (text.indexOf('week') > -1) return num * 7;
+      if (text.indexOf('month') > -1) return num * 30;
       return num;
     }
-
     if (sortBy === 'highest') {
-      cards.sort((a, b) => getStars(b) - getStars(a) || getDays(a) - getDays(b));
+      cards.sort(function(a, b) { return getStars(b) - getStars(a) || getDays(a) - getDays(b); });
     } else if (sortBy === 'lowest') {
-      cards.sort((a, b) => getStars(a) - getStars(b) || getDays(a) - getDays(b));
+      cards.sort(function(a, b) { return getStars(a) - getStars(b) || getDays(a) - getDays(b); });
     } else {
-      cards.sort((a, b) => getDays(a) - getDays(b));
+      cards.sort(function(a, b) { return getDays(a) - getDays(b); });
     }
-
-    cards.forEach(card => {
+    cards.forEach(function(card) {
       card.classList.remove('visible');
       list.appendChild(card);
     });
-
     visibleCount = 0;
     showMoreBtn.classList.remove('hidden');
     showMoreReviews();
   }
 
-  // FAQ toggle
   function toggleFaq(item) {
-    const answer = item.querySelector('.faq-answer');
-    const toggle = item.querySelector('.faq-toggle');
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
+    var answer = item.querySelector('.faq-answer');
+    var toggle = item.querySelector('.faq-toggle');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
       i.classList.remove('open');
       i.querySelector('.faq-answer').style.maxHeight = '0';
       i.querySelector('.faq-toggle').textContent = '+';
     });
-
     if (!isOpen) {
       item.classList.add('open');
       answer.style.maxHeight = answer.scrollHeight + 'px';
-      toggle.textContent = '−';
+      toggle.textContent = '\u2212';
     }
   }
+
+  // === INIT ON DOM READY ===
+  document.addEventListener('DOMContentLoaded', function() {
+    prodTrack = document.getElementById('productTrack');
+    prodDots = document.querySelectorAll('.product-carousel-dot');
+    slides = document.querySelectorAll('.ingredient-slide');
+    totalSlides = slides.length;
+    reviewCards = document.querySelectorAll('.reviews-list .review-card');
+    showMoreBtn = document.getElementById('showMoreBtn');
+
+    // Product carousel swipe
+    var prodTouchX = 0;
+    var prodCarousel = document.getElementById('productCarousel');
+    if (prodCarousel) {
+      prodCarousel.addEventListener('touchstart', function(e) { prodTouchX = e.touches[0].clientX; }, { passive: true });
+      prodCarousel.addEventListener('touchend', function(e) {
+        var diff = prodTouchX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) goToProductSlide(prodSlide < prodTotal - 1 ? prodSlide + 1 : 0);
+          else goToProductSlide(prodSlide > 0 ? prodSlide - 1 : prodTotal - 1);
+        }
+      }, { passive: true });
+    }
+
+    // Ingredient carousel swipe
+    var touchStartX = 0;
+    var carousel = document.querySelector('.ingredient-carousel');
+    if (carousel) {
+      carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) goToSlide(currentSlide + 1);
+          else goToSlide(currentSlide - 1);
+        }
+      }, { passive: true });
+    }
+
+    // Sticky bottom bar
+    var stickyBar = document.getElementById('stickyBar');
+    var atcSection = document.querySelector('.atc-section');
+    if (atcSection && stickyBar) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) stickyBar.classList.add('visible');
+          else stickyBar.classList.remove('visible');
+        });
+      }, { threshold: 0 });
+      observer.observe(atcSection);
+    }
+
+    // Open default accordions
+    document.querySelectorAll('.accordion-item.open .accordion-body').forEach(function(el) {
+      el.style.maxHeight = (el.scrollHeight + 20) + 'px';
+    });
+
+    // Init carousels and reviews
+    updatePrices();
+    goToSlide(0);
+    showMoreReviews();
+  });
 </script>
 
 </body>
