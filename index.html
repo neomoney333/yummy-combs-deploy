@@ -395,24 +395,25 @@
 
   .dog-size-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
     margin-bottom: 10px;
   }
 
   .dog-size-btn {
-    padding: 8px;
+    padding: 8px 4px;
     border: 1.5px solid var(--border);
     border-radius: 8px;
     background: var(--white);
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 500;
     color: var(--text-dark);
     text-align: center;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.15s;
+    white-space: nowrap;
   }
 
   .dog-size-btn.active {
@@ -2210,10 +2211,11 @@
   <!-- Dog Size -->
   <div class="dog-size-label">Dog Size:</div>
   <div class="dog-size-grid">
-    <button class="dog-size-btn" onclick="setDogSize(this)">Up to 30lbs</button>
-    <button class="dog-size-btn active" onclick="setDogSize(this)">31 - 60lbs</button>
-    <button class="dog-size-btn" onclick="setDogSize(this)">61 - 90lbs</button>
-    <button class="dog-size-btn" onclick="setDogSize(this)">Over 90lbs</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">XS (5-12lbs)</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">S (13-25lbs)</button>
+    <button class="dog-size-btn active" onclick="setDogSize(this)">M (26-50lbs)</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">L (51-100lbs)</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">XL (100+lbs)</button>
   </div>
 
   <!-- Bundle Options -->
