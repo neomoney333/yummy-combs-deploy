@@ -243,9 +243,24 @@
   .stars {
     display: flex;
     gap: 0px;
-    color: var(--purple);
+    color: var(--gold);
     font-size: 16px;
     letter-spacing: -1px;
+  }
+
+  .star-half {
+    position: relative;
+    color: #ddd;
+    display: inline-block;
+  }
+  .star-half::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--gold);
   }
 
   .rating-text {
@@ -2188,9 +2203,9 @@
     <span class="badge badge-gold">VOHC accepted!</span>
     <span class="badge badge-outline">dogs love it</span>
   </div>
-  <h1 class="product-title">#1 Dental Treat</h1>
+  <h1 class="product-title">Better Than Brushing</h1>
   <div class="rating">
-    <div class="stars">★★★★<span style="opacity:0.35">★</span></div>
+    <div class="stars">★★★★<span class="star-half">★</span></div>
     <span class="rating-text">4.7 (2,400+ Reviews)</span>
   </div>
   <p class="product-description">The world's first patented dental treat that safely removes hardened tartar. 360° flossing action with 256 scrubbing surfaces, packed with 44% protein and 12 wellness ingredients.</p>
