@@ -1030,10 +1030,9 @@
   .sticky-bottom {
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     width: 100%;
-    max-width: 393px;
     background: var(--white);
     border-top: 1px solid #e6dcea;
     padding: 8px 16px;
@@ -3003,12 +3002,6 @@
   }
 
   let qty = 1;
-  document.getElementById('qtyMinus').addEventListener('click', () => {
-    if (qty > 1) { qty--; document.getElementById('qtyVal').textContent = qty; }
-  });
-  document.getElementById('qtyPlus').addEventListener('click', () => {
-    qty++; document.getElementById('qtyVal').textContent = qty;
-  });
 
   function selectOption(type) {
     // Legacy - no longer used
