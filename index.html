@@ -401,19 +401,31 @@
   }
 
   .dog-size-btn {
-    padding: 8px 2px;
+    padding: 12px 8px;
     border: 1.5px solid var(--border);
     border-radius: 8px;
     background: var(--white);
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     color: var(--text-dark);
     text-align: center;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.15s;
     white-space: nowrap;
+  }
+
+  .dog-size-weight {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-top: 2px;
+  }
+
+  .dog-size-btn.active .dog-size-weight {
+    color: var(--purple);
   }
 
   .dog-size-btn.active {
@@ -2211,11 +2223,11 @@
   <!-- Dog Size -->
   <div class="dog-size-label">Dog Size:</div>
   <div class="dog-size-grid">
-    <button class="dog-size-btn" onclick="setDogSize(this)">XS (5-12lbs)</button>
-    <button class="dog-size-btn" onclick="setDogSize(this)">S (13-25lbs)</button>
-    <button class="dog-size-btn active" onclick="setDogSize(this)">M (26-50lbs)</button>
-    <button class="dog-size-btn" onclick="setDogSize(this)">L (51-100lbs)</button>
-    <button class="dog-size-btn" onclick="setDogSize(this)">XL (100+lbs)</button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">XS<span class="dog-size-weight">5-12lbs</span></button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">S<span class="dog-size-weight">13-25lbs</span></button>
+    <button class="dog-size-btn active" onclick="setDogSize(this)">M<span class="dog-size-weight">26-50lbs</span></button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">L<span class="dog-size-weight">51-100lbs</span></button>
+    <button class="dog-size-btn" onclick="setDogSize(this)">XL<span class="dog-size-weight">100+lbs</span></button>
   </div>
 
   <!-- Bundle Options -->
