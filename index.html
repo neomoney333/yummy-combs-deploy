@@ -189,31 +189,28 @@
     object-fit: contain;
   }
 
-  .product-carousel-dots {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 6px;
-    z-index: 5;
-  }
+  /* Hide old dots */
+  .product-carousel-dots { display: none; }
 
-  .product-carousel-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
+  /* Progress bar — visible everywhere */
+  .product-progress-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+    width: 100%;
+  }
+  .progress-segment {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: #e0dce4;
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: background 0.2s, width 0.2s;
+    transition: background 0.3s;
   }
-
-  .product-carousel-dot.active {
-    background: var(--white);
-    width: 20px;
-    border-radius: 4px;
+  .progress-segment.active {
+    background: var(--purple);
   }
 
   /* === PRODUCT INFO === */
@@ -2083,87 +2080,90 @@
     .promo-images { gap: 10px; }
     .promo-img-placeholder { width: 56px; height: 66px; border-radius: 8px; }
 
-    /* Two-Column Product — centered, balanced columns */
+    /* Two-Column Product — Native Pet-style spacing */
     .product-page-wrapper {
-      max-width: 1140px;
+      max-width: 1300px;
       margin: 0 auto;
-      padding: 32px 60px;
-      gap: 48px;
+      padding: 10px 60px 32px;
+      gap: 44px;
       align-items: flex-start;
     }
 
     .product-left-col {
-      flex: 1;
+      flex: 1.1;
       position: sticky;
-      top: 70px;
+      top: 65px;
+      max-width: 520px;
     }
 
     .product-right-col {
       flex: 1;
       min-width: 0;
+      padding-top: 8px;
     }
 
     .product-carousel {
       border-radius: 12px;
       overflow: hidden;
     }
+    .product-progress-bar {
+      margin-top: 12px;
+    }
+    .progress-segment {
+      height: 4px;
+    }
 
-    .product-title { font-size: 34px; margin-bottom: 6px; }
+    .product-title { font-size: 38px; margin-bottom: 4px; line-height: 1.1; }
     .product-title-mobile { display: none; }
     .product-title-desktop { display: block; }
-    .product-description { font-size: 15px; line-height: 1.65; }
-    .badges { margin-bottom: 10px; }
-    .badge { font-size: 11px; padding: 5px 12px; }
-    .rating { margin-bottom: 14px; }
+    .product-description { font-size: 16px; line-height: 1.65; margin-bottom: 20px; }
+    .badges { margin-bottom: 8px; }
+    .badge { font-size: 11px; padding: 5px 14px; }
+    .rating { margin-bottom: 16px; }
 
-    /* Purchase options — tighter, cleaner */
-    .purchase-toggle { margin-bottom: 12px; }
-    .purchase-toggle-btn { padding: 13px; font-size: 14px; }
+    /* Purchase options */
+    .purchase-toggle { margin-bottom: 14px; }
+    .purchase-toggle-btn { padding: 14px; font-size: 15px; }
     .dog-size-btn { padding: 14px 8px; font-size: 16px; }
-    .dog-size-grid { margin-bottom: 12px; }
-    .bundle-card { padding: 14px 16px; }
-    .bundle-card-name { font-size: 15px; }
-    .bundle-price-current { font-size: 19px; }
-    .bundle-price-single { font-size: 19px; }
-    .atc-btn { padding: 16px; font-size: 16px; letter-spacing: 1px; }
+    .dog-size-grid { margin-bottom: 14px; }
+    .bundle-card { padding: 16px 18px; }
+    .bundle-card-name { font-size: 16px; }
+    .bundle-price-current { font-size: 20px; }
+    .bundle-price-single { font-size: 20px; }
+    .atc-btn { padding: 18px; font-size: 17px; letter-spacing: 1px; }
 
-    /* Vet Endorsement */
-    .vet-endorsement-left { margin: 20px 0 0; padding: 14px; }
-    .vet-quote { font-size: 13px; line-height: 1.6; }
+    /* Vet Endorsement — compact under image */
+    .vet-endorsement-left { margin: 14px 0 0; padding: 14px; }
+    .vet-quote { font-size: 13px; line-height: 1.55; }
     .vet-name { font-size: 13px; }
 
-    /* UGC — evenly spaced row */
+    /* UGC — centered row */
     .ugc-row {
-      max-width: 100%;
-      margin: 0;
-      padding: 28px calc((100% - 1100px) / 2);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 40px;
       gap: 24px;
       justify-content: center;
       flex-wrap: wrap;
       overflow-x: visible;
     }
-    .ugc-card { width: 260px; height: 340px; border-radius: 14px; }
+    .ugc-card { width: 240px; height: 320px; border-radius: 14px; }
     .ugc-caption { font-size: 12px; padding: 6px 8px; }
 
-    /* Accordion — sits under product, centered */
+    /* Accordion — centered under product */
     .accordion-section {
-      max-width: 1140px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 8px 60px 20px;
+      padding: 8px 40px 20px;
     }
     .accordion-title { font-size: 16px; }
     .accordion-body-inner { font-size: 15px; line-height: 1.6; }
 
-    /* Hero Image — wider on desktop */
+    /* Hero Image — contained on desktop */
     .hero-image-section {
-      max-width: 100%;
-      margin: 0;
+      max-width: 800px;
+      margin: 20px auto;
       padding: 0;
-    }
-    .hero-image-section img {
-      max-height: 500px;
-      object-fit: cover;
-      object-position: center top;
     }
 
     /* Benefits — full width bg, centered content */
@@ -2339,6 +2339,13 @@
     <button class="product-carousel-dot" onclick="goToProductSlide(3)"></button>
     <button class="product-carousel-dot" onclick="goToProductSlide(4)"></button>
   </div>
+</div>
+<div class="product-progress-bar" id="productProgressBar">
+  <button class="progress-segment active" onclick="goToProductSlide(0)"></button>
+  <button class="progress-segment" onclick="goToProductSlide(1)"></button>
+  <button class="progress-segment" onclick="goToProductSlide(2)"></button>
+  <button class="progress-segment" onclick="goToProductSlide(3)"></button>
+  <button class="progress-segment" onclick="goToProductSlide(4)"></button>
 </div>
 <!-- Vet Endorsement (inside left col for desktop) -->
 <div class="vet-endorsement vet-endorsement-left">
@@ -3021,7 +3028,6 @@
 
 <!-- FAQ Section -->
 <div class="faq-section">
-  <img src="https://yummy-combs-deploy.vercel.app/faq-header.png" alt="Yummy Combs" style="max-width: 260px; margin-bottom: 16px;">
   <div class="faq-headline">frequently<br>asked questions</div>
 
   <div class="faq-item" onclick="toggleFaq(this)">
@@ -3135,6 +3141,8 @@
     prodSlide = n;
     if (prodTrack) prodTrack.style.transform = 'translateX(-' + (n * 100) + '%)';
     if (prodDots) prodDots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+    var segments = document.querySelectorAll('.progress-segment');
+    if (segments.length) segments.forEach(function(s, i) { s.classList.toggle('active', i === n); });
   }
 
   function setPurchaseType(type) {
