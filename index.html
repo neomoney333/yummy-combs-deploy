@@ -14,7 +14,7 @@
     --purple-dark: #522B62;
     --purple-light: #f0e4f5;
     --purple-mid: #8B5A9E;
-    --gold: #E8A832;
+    --gold: #F0B840;
     --gold-light: #FEF3DC;
     --teal: #2BBAB4;
     --teal-light: #d4f3f1;
@@ -256,6 +256,7 @@
     margin-bottom: 4px;
     line-height: 1.1;
   }
+  .product-title-desktop { display: none; }
 
   .rating {
     display: flex;
@@ -2063,28 +2064,38 @@
   }
 
   @media (min-width: 1200px) {
-    /* Header */
-    .header { padding: 14px 60px; }
-    .header-logo { height: 42px; }
-    .top-banner { font-size: 18px; }
+    /* Header — clean desktop nav */
+    .header { padding: 16px 80px; }
+    .header-logo { height: 50px; }
+    .header-logo img { max-width: 280px; }
+    .header-menu svg, .header-cart svg { width: 28px; height: 28px; }
+    .top-banner { font-size: 14px; letter-spacing: 0.5px; padding: 10px 20px; }
 
     /* Promo Bar */
     .promo-bar {
-      padding: 16px 60px;
+      padding: 14px 80px;
       justify-content: center;
-      gap: 32px;
+      gap: 28px;
     }
     .promo-label { font-size: 10px; letter-spacing: 1.2px; }
     .promo-headline { font-size: 18px; }
     .promo-sub { font-size: 12px; }
     .promo-images { gap: 10px; }
-    .promo-img-placeholder { width: 58px; height: 68px; border-radius: 8px; }
+    .promo-img-placeholder { width: 56px; height: 66px; border-radius: 8px; }
 
-    /* Two-Column Product - wider on large screens */
+    /* Two-Column Product — centered, balanced columns */
     .product-page-wrapper {
-      max-width: 1100px;
-      padding: 30px 60px;
-      gap: 50px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 32px 60px;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    .product-left-col {
+      flex: 1;
+      position: sticky;
+      top: 70px;
     }
 
     .product-right-col {
@@ -2092,97 +2103,200 @@
       min-width: 0;
     }
 
-    .product-title { font-size: 32px; }
-    .product-description { font-size: 16px; }
-
-    /* Vet Endorsement - in left col */
-    .vet-endorsement-left {
-      margin: 20px 0 0;
+    .product-carousel {
+      border-radius: 12px;
+      overflow: hidden;
     }
 
-    .product-left-col {
-      flex: 1.15;
-    }
+    .product-title { font-size: 34px; margin-bottom: 6px; }
+    .product-title-mobile { display: none; }
+    .product-title-desktop { display: block; }
+    .product-description { font-size: 15px; line-height: 1.65; }
+    .badges { margin-bottom: 10px; }
+    .badge { font-size: 11px; padding: 5px 12px; }
+    .rating { margin-bottom: 14px; }
 
-    /* UGC */
+    /* Purchase options — tighter, cleaner */
+    .purchase-toggle { margin-bottom: 12px; }
+    .purchase-toggle-btn { padding: 13px; font-size: 14px; }
+    .dog-size-btn { padding: 14px 8px; font-size: 16px; }
+    .dog-size-grid { margin-bottom: 12px; }
+    .bundle-card { padding: 14px 16px; }
+    .bundle-card-name { font-size: 15px; }
+    .bundle-price-current { font-size: 19px; }
+    .bundle-price-single { font-size: 19px; }
+    .atc-btn { padding: 16px; font-size: 16px; letter-spacing: 1px; }
+
+    /* Vet Endorsement */
+    .vet-endorsement-left { margin: 20px 0 0; padding: 14px; }
+    .vet-quote { font-size: 13px; line-height: 1.6; }
+    .vet-name { font-size: 13px; }
+
+    /* UGC — evenly spaced row */
     .ugc-row {
-      max-width: 860px;
-      margin: 0 auto;
-      gap: 20px;
+      max-width: 100%;
+      margin: 0;
+      padding: 28px calc((100% - 1100px) / 2);
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: visible;
     }
-    .ugc-card { width: 220px; height: 310px; }
-    .ugc-caption { font-size: 13px; }
+    .ugc-card { width: 260px; height: 340px; border-radius: 14px; }
+    .ugc-caption { font-size: 12px; padding: 6px 8px; }
 
-    /* Accordion */
+    /* Accordion — sits under product, centered */
     .accordion-section {
-      max-width: 860px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 0 60px;
+      padding: 8px 60px 20px;
     }
+    .accordion-title { font-size: 16px; }
+    .accordion-body-inner { font-size: 15px; line-height: 1.6; }
 
-    /* Hero Image */
+    /* Hero Image — wider on desktop */
     .hero-image-section {
-      max-width: 560px;
-      margin: 24px auto;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .hero-image-section img {
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center top;
     }
 
-    /* Benefits */
+    /* Benefits — full width bg, centered content */
     .benefits-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 56px 60px;
+      max-width: 100%;
+      margin: 0;
+      padding: 60px 80px;
+      border-radius: 0;
     }
-    .benefits-headline { font-size: 32px; }
-    .benefit-card { padding: 20px 24px; }
-    .benefit-card-icon { width: 48px; height: 48px; }
-    .benefit-card-icon svg { width: 24px; height: 24px; }
+    .benefits-eyebrow, .benefits-headline, .benefit-card-wrap {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .benefits-eyebrow { font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .benefits-headline { font-size: 36px; margin-bottom: 28px; }
+    .benefit-card { padding: 22px 28px; }
+    .benefit-card-icon { width: 52px; height: 52px; }
+    .benefit-card-icon svg { width: 26px; height: 26px; }
     .benefit-card-label { font-size: 18px; }
-    .benefit-card-body-inner { font-size: 15px; padding-left: 84px; }
+    .benefit-card-body-inner { font-size: 15px; padding-left: 92px; line-height: 1.6; }
+    .benefit-card-wrap { border-radius: 14px; margin-bottom: 12px; }
 
-    /* Ingredients */
+    /* Ingredients — grid layout on desktop, no carousel */
     .ingredients-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 50px 60px;
+      max-width: 100%;
+      margin: 0;
+      padding: 60px calc((100% - 1100px) / 2);
     }
-    .ingredients-headline { font-size: 32px; }
-    .ingredient-carousel { height: 460px; }
+    .ingredients-eyebrow { font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .ingredients-headline { font-size: 36px; margin-bottom: 28px; }
+    .ingredient-carousel {
+      height: auto;
+      overflow: visible;
+    }
+    .ingredient-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      height: auto;
+    }
+    .ingredient-slide {
+      position: static;
+      width: 100%;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: none !important;
+    }
+    .ingredient-slide .ingredient-name,
+    .ingredient-slide .ingredient-desc {
+      opacity: 1 !important;
+    }
+    .ingredient-name { font-size: 22px; }
+    .ingredient-desc { font-size: 14px; max-width: none; }
 
-    /* Comparison */
+    /* Comparison — full width bg, centered card */
     .comparison-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 60px;
+      max-width: 100%;
+      margin: 0;
+      padding: 48px 80px;
+      border-radius: 0;
     }
-    .comparison-headline { font-size: 32px; }
+    .comparison-card {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .comparison-eyebrow { font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .comparison-headline { font-size: 36px; margin-bottom: 24px; }
+    .comparison-card { padding: 32px 28px 24px; border-radius: 16px; }
+    .comp-header { grid-template-columns: 1fr 160px 120px; padding: 14px 20px; }
+    .comp-row { grid-template-columns: 1fr 160px 120px; padding: 14px 20px; }
+    .comp-feature { font-size: 15px; }
+    .comp-header-us { font-size: 11px; }
+    .comp-header-us img { width: 60px !important; }
+    .comp-header-them { font-size: 14px; }
+    .comp-check-yes, .comp-check-no { width: 28px; height: 28px; }
 
-    /* Reviews */
-    .reviews-headline { font-size: 32px; }
+    /* Reviews — centered, readable width */
     .reviews-section {
-      max-width: 860px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 30px 60px;
+      padding: 48px 40px;
+      text-align: center;
     }
+    .reviews-headline { font-size: 36px; margin-bottom: 24px; }
+    .reviews-subtitle { font-size: 16px; }
+    .reviews-sort-bar { text-align: left; }
+    .review-card { padding: 20px 0; text-align: left; }
+    .review-title { font-size: 17px; }
+    .review-body { font-size: 15px; line-height: 1.6; }
+    .write-review-btn { font-size: 15px; padding: 14px 40px; }
+    .show-more-btn { max-width: 400px; margin-left: auto; margin-right: auto; }
+    .reviews-list { max-width: 720px; margin: 0 auto; }
 
-    /* FAQ */
-    .faq-headline { font-size: 32px; }
+    /* FAQ — full width bg, centered content */
     .faq-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 30px 60px;
+      max-width: 100%;
+      margin: 0;
+      padding: 48px 80px;
+      border-radius: 0;
     }
+    .faq-eyebrow, .faq-headline, .faq-item {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-eyebrow { font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .faq-headline { font-size: 36px; margin-bottom: 28px; }
+    .faq-question { padding: 18px 0; }
+    .faq-question-text { font-size: 16px; }
+    .faq-answer-inner { font-size: 15px; line-height: 1.6; }
 
-    /* Footer */
+    /* Footer — centered content */
     .footer {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 60px;
+      max-width: 100%;
+      margin: 0;
+      padding: 40px 80px;
+      text-align: center;
     }
+    .footer-copyright { font-size: 14px; }
+    .footer-tagline { font-size: 13px; letter-spacing: 2px; }
+    .footer-brand img { width: 100px; }
 
-    /* Sticky Bottom */
-    .sticky-bottom { padding: 14px 60px; }
-    .sticky-product-name { font-size: 18px; }
-    .sticky-cta { font-size: 16px; padding: 12px 32px; }
+    /* Sticky Bottom — centered desktop bar */
+    .sticky-bottom {
+      padding: 16px 80px;
+      max-width: 100%;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+      justify-content: center;
+      gap: 40px;
+    }
+    .sticky-product-name { font-size: 20px; }
+    .sticky-cta { font-size: 16px; padding: 14px 40px; }
   }
 </style>
 </head>
@@ -2241,7 +2355,8 @@
 
 <div class="product-right-col">
 <div class="product-info" id="productInfo">
-  <h1 class="product-title">Better Than Brushing<span style="font-size:0.5em; vertical-align:super;">™</span></h1>
+  <h1 class="product-title product-title-mobile">Better Than Brushing<span style="font-size:0.5em; vertical-align:super;">™</span></h1>
+  <h1 class="product-title product-title-desktop">Yummy Combs<span style="font-size:0.5em; vertical-align:super;">®</span></h1>
   <div class="badges">
     <span class="badge badge-gold">VOHC accepted!</span>
     <span class="badge badge-gold">vet recommended</span>
@@ -2254,7 +2369,7 @@
   <p class="product-description">The world's first patented dental treat that safely removes hardened tartar. 360° flossing action with 256 scrubbing surfaces, packed with 44% protein and 12 wellness ingredients.</p>
 </div>
 
-<div class="purchase-options">
+<div class="purchase-options" id="purchaseSection">
   <!-- One Time / Subscribe Toggle -->
   <div class="purchase-toggle">
     <button class="purchase-toggle-btn" id="toggleOneTime" onclick="setPurchaseType('onetime')">One Time</button>
@@ -2906,7 +3021,7 @@
 
 <!-- FAQ Section -->
 <div class="faq-section">
-  <div class="faq-eyebrow">YUMMY COMBS</div>
+  <img src="https://yummy-combs-deploy.vercel.app/faq-header.png" alt="Yummy Combs" style="max-width: 260px; margin-bottom: 16px;">
   <div class="faq-headline">frequently<br>asked questions</div>
 
   <div class="faq-item" onclick="toggleFaq(this)">
@@ -2998,7 +3113,7 @@
 <!-- Sticky Bottom Bar -->
 <div class="sticky-bottom" id="stickyBar">
   <span class="sticky-product-name">#1 Dental Dog Treat</span>
-  <button class="sticky-cta" onclick="var el=document.getElementById('productInfo');if(el){window.scrollTo({top:el.offsetTop-60,behavior:'smooth'})}">SHOP NOW</button>
+  <button class="sticky-cta" onclick="var el=document.getElementById('purchaseSection');if(el){window.scrollTo({top:el.offsetTop-60,behavior:'smooth'})}">SHOP NOW</button>
 </div>
 
 <div class="page-bottom-spacer"></div>
